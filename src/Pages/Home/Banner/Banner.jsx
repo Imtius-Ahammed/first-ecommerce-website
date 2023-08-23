@@ -10,7 +10,8 @@ import {
 import { PiDotsThreeOutlineThin } from "react-icons/pi";
 import React from "react";
 
-const Home = () => {
+
+const Banner = () => {
   return (
     <div className="container mx-auto w-9/12 h-[35rem] flex">
       <div className="w-4/12 border shadow-md">
@@ -277,4 +278,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Banner;
