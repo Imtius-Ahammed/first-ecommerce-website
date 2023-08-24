@@ -13,8 +13,8 @@ import React from "react";
 
 const Banner = () => {
   return (
-    <div className="container mx-auto w-9/12 h-[35rem] flex">
-      <div className="w-4/12 border shadow-md">
+    <div className="container  mx-auto lg:w-9/12 h-[35rem] flex">
+      <div className="w-4/12 border shadow-md lg:block hidden">
         <div className="dropdown  dropdown-right  w-full border ">
           <label tabIndex={0}>
             <div className="flex gap-2 p-4 bg-black text-white hover:text-sky-400">
