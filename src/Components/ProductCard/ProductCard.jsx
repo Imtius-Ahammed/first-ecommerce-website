@@ -39,6 +39,15 @@ const ProductCard = ({ product }) => {
 
     let content;
 
+    if (rating === 0) {
+        content = <p className='flex items-center gap-1 text-yellow-500'>
+            <FaRegStar size={12} />
+            <FaRegStar size={12} />
+            <FaRegStar size={12} />
+            <FaRegStar size={12} />
+            <FaRegStar size={12} />
+        </p>
+    }
     if (rating === 1) {
         content = <p className='flex items-center gap-1 text-yellow-500'>
             <FaStar size={12} />
@@ -88,8 +97,8 @@ const ProductCard = ({ product }) => {
         <div className={`py-2 hover:scale-105 duration-500 relative`}
             onMouseEnter={handleCardMouseEnter}
             onMouseLeave={handleCardMouseLeave}>
-            <div className=' bg-slate-200'>
-                <img src={img} alt="" className='p-4' />
+            <div className=' bg-slate-200 h-4/5'>
+                <img src={img} alt="" className='px-4 py-10' />
             </div>
             <div className='pt-2 px-1'>
                 {content}
@@ -134,6 +143,14 @@ const ProductCard = ({ product }) => {
                     Wishlist
                 </div>
             )}
+            <div className='absolute top-7 left-0 pl-4'>
+
+                {
+                    rating === 3 && (
+                        <p className='bg-red-500 text-sm px-1 text-white'>SALE!</p>
+                    )
+                }
+            </div>
         </div>
     );
 };
