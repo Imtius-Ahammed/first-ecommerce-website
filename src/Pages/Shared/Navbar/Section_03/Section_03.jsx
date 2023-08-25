@@ -58,7 +58,7 @@ const Section_03 = () => {
                             <Link className="hover:text-orange-500 hover:border-b-2 hover:bg-white border-orange-500 font-medium text-md">Blogs</Link>
                         </div>
                         <div>
-                            <Link className="hover:text-orange-500 hover:border-b-2 hover:bg-white border-orange-500 font-medium text-md">About Us</Link>
+                            <Link to="/about-us" className="hover:text-orange-500 hover:border-b-2 hover:bg-white border-orange-500 font-medium text-md">About Us</Link>
                         </div>
                         <div>
                             <Link className="hover:text-orange-500 hover:border-b-2 hover:bg-white border-orange-500 font-medium text-md">Contact Us</Link>

@@ -13,7 +13,7 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return (
-        <div className='mx-auto w-full divide-y-2 lg:w-9/12 mt-40 lg:mt-0'>
+        <div className='mx-auto w-full divide-y-2 lg:w-9/12'>
             <footer className="footer text-base-content py-20 px-4 lg:px-0">
                 <div className='flex flex-col gap-8 w-full'>
                     <img src={logo} alt="" />
