@@ -2,7 +2,7 @@ import React from 'react';
 
 const Trendings = () => {
     return (
-        <div className='max-w-6xl mx-auto  '>
+        <div className='max-w-6xl mx-auto  my-20'>
             <div className='text-center lg:m-0 mx-4'>
                 <h1 className='text-4xl font-bold '>Trendings Categories</h1>
                 <p>Find a bright ideal to suit your taste with our great selection of suspension.</p>
