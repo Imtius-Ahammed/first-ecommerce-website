@@ -39,7 +39,7 @@ const Section_01 = () => {
                         </ul>
                     </div>
                     <div className='px-3'>
-                        <Link>Sign In / Register</Link>
+                        <Link to='/login'>Sign In / Register</Link>
                     </div>
                 </div>
             </div>
