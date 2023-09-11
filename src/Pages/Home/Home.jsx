@@ -5,6 +5,8 @@ import NewArrivals from './NewArrivals/NewArrivals';
 
 import Trendings from './Trendings/Trendings';
 import AdSection from './AdSection/AdSection';
+import LatestNews from './LatestNews/LatestNews';
+import GetInTouch from '../Shared/GetInTouch/GetInTouch';
 
 
 

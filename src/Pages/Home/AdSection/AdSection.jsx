@@ -17,8 +17,17 @@ const AdSection = () => {
                    
 
                     </div>
-                <div className='mx-2 lg:mx-0' >
+                <div className='mx-2 lg:mx-0 relative' >
                     <img src="/src/Assets/Img/banner-2.jpg" alt="" />
+                    <div className="px-5 my-7 absolute top-20 py-3 w-full ">
+                       
+                       <h1 className='text-red-600 text-xl font-medium'>New Season</h1>
+                       <h1 className='lg:text-3xl w-5/12 md:text-2xl bg-black text-center text-white py-3'>Summer Collection</h1>
+     
+
+      <button className="btn btn-neutral my-5">Shop now</button>
+    
+    </div>
                     </div>
 
             </div>
