@@ -13,7 +13,9 @@ const Home = () => {
             <NewArrivals />
             <FeaturedItems />
             <LatestNews></LatestNews>
+            {/* ********************************** */}
             <GetInTouch></GetInTouch>
+            {/* ********************************** */}
         </>
 
 
