@@ -15,7 +15,7 @@ const Section_02 = () => {
                     </label>
                     <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-orange-200 font-semibold rounded-box w-96">
                         <li><Link className='hover:text-orange-500 hover:border-b-2 hover:bg-white border-orange-500'>Home</Link></li>
-                        <li tabIndex={0}>
+                        {/* <li tabIndex={0}>
                             <details>
                                 <summary className='hover:text-orange-500 hover:border-b-2 hover:bg-white border-orange-500'>Shop</summary>
                                 <ul className="p-2 z-10 w-64">
@@ -23,31 +23,14 @@ const Section_02 = () => {
                                     <li><Link className='hover:bg-white hover:text-orange-500'>Submenu 2</Link></li>
                                 </ul>
                             </details>
-                        </li>
-                        <li tabIndex={0}>
-                            <details>
-                                <summary className='hover:text-orange-500 hover:border-b-2 hover:bg-white border-orange-500'>Products</summary>
-                                <ul className="p-2 z-10 w-64">
-                                    <li><Link className='hover:bg-white hover:text-orange-500'>Submenu 1</Link></li>
-                                    <li><Link className='hover:bg-white hover:text-orange-500'>Submenu 2</Link></li>
-                                </ul>
-                            </details>
-                        </li>
-                        <li tabIndex={0}>
-                            <details>
-                                <summary className='hover:text-orange-500 hover:border-b-2 hover:bg-white border-orange-500'>Pages</summary>
-                                <ul className="p-2 z-10 w-64">
-                                    <li><Link className='hover:bg-white hover:text-orange-500'>Submenu 1</Link></li>
-                                    <li><Link className='hover:bg-white hover:text-orange-500'>Submenu 2</Link></li>
-                                </ul>
-                            </details>
-                        </li>
-                        <li><Link className='hover:text-orange-500 hover:border-b-2 hover:bg-white border-orange-500'>Blog</Link></li>
-                        <li><Link className='hover:text-orange-500 hover:border-b-2 hover:bg-white border-orange-500'>About Us</Link></li>
-                        <li><Link className='hover:text-orange-500 hover:border-b-2 hover:bg-white border-orange-500'>Contact Us</Link></li>
+                        </li> */}
+                        <li><Link to='/shops' className='hover:text-orange-500 hover:border-b-2 hover:bg-white border-orange-500'>Shops</Link></li>
+                        <li><Link to='/blogs' className='hover:text-orange-500 hover:border-b-2 hover:bg-white border-orange-500'>Blog</Link></li>
+                        <li><Link to='/about-us' className='hover:text-orange-500 hover:border-b-2 hover:bg-white border-orange-500'>About Us</Link></li>
+                        <li><Link to='/contact-us' className='hover:text-orange-500 hover:border-b-2 hover:bg-white border-orange-500'>Contact Us</Link></li>
                     </ul>
                 </div>
-                <img className='lg:w-full w-24' src={logo} alt="" />
+                <Link to='/'><img className='lg:w-full w-24' src={logo} alt="" /></Link>
             </div>
             <div className='hidden lg:flex items-center'>
                 <input

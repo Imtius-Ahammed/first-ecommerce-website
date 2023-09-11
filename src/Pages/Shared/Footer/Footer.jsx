@@ -16,7 +16,7 @@ const Footer = () => {
         <div className='mx-auto w-full divide-y-2 lg:w-9/12'>
             <footer className="footer text-base-content py-20 px-4 lg:px-0">
                 <div className='flex flex-col gap-8 w-full'>
-                    <img src={logo} alt="" />
+                    <Link to='/'><img src={logo} alt="" /></Link>
                     <div className='flex flex-col gap-4'>
                         <p className="full lg:w-80">
                             Address:
