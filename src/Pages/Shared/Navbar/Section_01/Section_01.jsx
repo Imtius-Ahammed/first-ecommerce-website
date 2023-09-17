@@ -1,6 +1,7 @@
 import { MdArrowDropDown } from '@react-icons/all-files/md/MdArrowDropDown';
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Login from '../../../Login/Login';
 
 const Section_01 = () => {
     return (
@@ -39,7 +40,14 @@ const Section_01 = () => {
                         </ul>
                     </div>
                     <div className='px-3'>
-                        <Link to='/login'>Sign In / Register</Link>
+                        <button  onClick={()=>document.getElementById('my_modal_3').showModal()}>Sign In / Register</button>
+                        {/* You can open the modal using document.getElementById('ID').showModal() method */}
+
+<dialog id="my_modal_3" className="modal">
+  <div className="modal-box">
+   <Login></Login>
+  </div>
+</dialog>
                     </div>
                 </div>
             </div>

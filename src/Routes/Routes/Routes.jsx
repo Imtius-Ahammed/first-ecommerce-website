@@ -8,6 +8,7 @@ import BlogDetails from "../../Pages/Blogs/BlogDetails/BlogDetails";
 import Contact from "../../Pages/Contact/Contact";
 import Blogs from "../../Pages/Blogs/Blogs";
 import Shops from "../../Pages/Shops/Shops";
+import Section_01 from "../../Pages/Shared/Navbar/Section_01/Section_01";
 
 export const router = createBrowserRouter([
     {
@@ -38,11 +39,11 @@ export const router = createBrowserRouter([
                 path: '/contact-us',
                 element: <Contact></Contact>
             },
-            {
-                path: '/login',
-                element: <Login></Login>
+            // {
+            //     path: '/login',
+            //     element:<Section_01></Section_01>
 
-            }
+            // }
         ]
 
     }
