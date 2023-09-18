@@ -30,6 +30,9 @@ const Section_03 = () => {
                             <Link to='/shops' className="hover:text-orange-500 hover:border-b-2 hover:bg-white border-orange-500 font-medium text-md">Shops</Link>
                         </div>
                         <div>
+                            <Link to='/product-details' className="hover:text-orange-500 hover:border-b-2 hover:bg-white border-orange-500 font-medium text-md">ProductDetails</Link>
+                        </div>
+                        <div>
                             <Link to='/blogs' className="hover:text-orange-500 hover:border-b-2 hover:bg-white border-orange-500 font-medium text-md">Blogs</Link>
                         </div>
                         <div>

@@ -10,11 +10,13 @@ import Blogs from "../../Pages/Blogs/Blogs";
 import Shops from "../../Pages/Shops/Shops";
 import Section_01 from "../../Pages/Shared/Navbar/Section_01/Section_01";
 import ProductDetails from "../../Pages/ProductDetails/ProductDetails";
+import Descriptions from "../../Pages/ProductDetails/Descriptions/Descriptions";
 
 export const router = createBrowserRouter([
     {
         path:'/',
         element: <Main></Main>,
+        
         children: [
             {
                 path: '/',
@@ -44,6 +46,7 @@ export const router = createBrowserRouter([
                 path: '/contact-us',
                 element: <Contact></Contact>
             },
+        
             // {
             //     path: '/login',
             //     element:<Section_01></Section_01>
