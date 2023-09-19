@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import Descriptions from './Descriptions/Descriptions';
 import AboutBrands from './AboutBrands/AboutBrands';
 import Shipping from './Shipping/Shipping';
+import RatingsReviews from './RatingsReviews/RatingsReviews';
+import RelatedProducts from './RelatedProducts/RelatedProducts';
 
 
 const ProductDetails = () => {
@@ -120,8 +122,10 @@ const ProductDetails = () => {
 
         <Link to='/descriptions'>Discount page</Link>
         <Descriptions></Descriptions>
+        <RatingsReviews></RatingsReviews>
         <AboutBrands></AboutBrands>
         <Shipping></Shipping>
+        <RelatedProducts></RelatedProducts>
         
 
 {/* swap */}
