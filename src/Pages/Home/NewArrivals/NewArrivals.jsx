@@ -9,7 +9,7 @@ const NewArrivals = () => {
             .then(data => setProducts(data))
             .catch(err => console.error(err))
     }, [])
-    console.log(products);
+    // console.log(products);
     return (
         <div className='max-w-6xl mx-auto my-20'>
             <h1 className='text-center text-4xl font-semibold mb-3'>New Arrivals</h1>

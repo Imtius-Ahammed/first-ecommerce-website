@@ -9,11 +9,12 @@ import {
 } from "react-icons/fa6";
 import { PiDotsThreeOutlineThin } from "react-icons/pi";
 import React from "react";
+import { Link } from "react-router-dom";
 
 
-const Banner = () => {
+const Banner = ({ categories }) => {
   return (
-    <div className="container  mx-auto lg:w-9/12 h-[35rem] flex">
+    <div className="container mx-auto lg:w-9/12 max-h-full flex">
       <div className="w-4/12 border shadow-md lg:block hidden">
         <div className="dropdown  dropdown-right  w-full border ">
           <label tabIndex={0}>
@@ -21,155 +22,29 @@ const Banner = () => {
               <FaAlignLeft className="mt-2 text-xl ml-3"></FaAlignLeft> <h3 className=" text-xl  ">Browse Our Sales</h3>
             </div>
           </label>
-          <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100  w-52">
-            <li>
-              <a>Item 1</a>
-            </li>
-            <li>
-              <a>Item 2</a>
-            </li>
-          </ul>
         </div>
 
-        <div className="dropdown dropdown-hover dropdown-right w-full  border">
-          <label tabIndex={0}>
-            <div className="flex gap-2 p-4 hover:text-sky-400 ">
-              <FaRegStar className="mt-2 text-xl ml-3"></FaRegStar> <h3 className=" text-xl ">Newest Items</h3>
-            </div>
-          </label>
-          <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100  w-52">
-            <li>
-              <a>Item 1</a>
-            </li>
-            <li>
-              <a>Item 2</a>
-            </li>
-          </ul>
-        </div>
-
-        <div className="dropdown dropdown-hover dropdown-right w-full  border">
-          <label tabIndex={0}>
-            <div className="flex gap-2 p-4 hover:text-sky-400">
-              <FaCircleDollarToSlot className="mt-2 text-xl ml-3"></FaCircleDollarToSlot>{" "}
-              <h3 className=" text-xl ">ON Sale</h3>
-            </div>
-          </label>
-          <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100  w-52">
-            <li>
-              <a>Item 1</a>
-            </li>
-            <li>
-              <a>Item 2</a>
-            </li>
-          </ul>
-        </div>
-
-        <div className="dropdown dropdown-hover dropdown-right w-full  border">
-          <label tabIndex={0}>
-            <div className="flex gap-2 p-4 hover:text-sky-400">
-              <FaPersonDressBurst className="mt-2 text-xl ml-3"></FaPersonDressBurst>{" "}
-              <h3 className=" text-xl ">Accessories</h3>
-            </div>
-          </label>
-          <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100  w-full">
-            <div className="grid grid-cols-4 gap-4">
-              <li>
-                <a>Item 1</a>
-              </li>
-              <li>
-                <a>Item 2</a>
-              </li>
-              <li>
-                <a>Item 1</a>
-              </li>
-              <li>
-                <a>Item 2</a>
-              </li>
-              <li>
-                <a>Item 1</a>
-              </li>
-              <li>
-                <a>Item 2</a>
-              </li>
-            </div>
-          </ul>
-        </div>
-        <div className="dropdown dropdown-hover dropdown-right w-full  border">
-          <label tabIndex={0}>
-            <div className="flex gap-2 p-4 hover:text-sky-400">
-              <FaPersonBooth className="mt-2 text-xl ml-3"></FaPersonBooth> <h3 className=" text-xl ">Backpack</h3>
-            </div>
-          </label>
-          <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100  w-52">
-            <li>
-              <a>Item 1</a>
-            </li>
-            <li>
-              <a>Item 2</a>
-            </li>
-          </ul>
-        </div>
-        <div className="dropdown dropdown-hover dropdown-right w-full  border">
-          <label tabIndex={0}>
-            <div className="flex gap-2 p-4 hover:text-sky-400">
-              <GiTravelDress className="mt-2 text-xl ml-3"></GiTravelDress> <h3 className=" text-xl ">Dresses</h3>
-            </div>
-          </label>
-          <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100  w-52">
-            <li>
-              <a>Item 1</a>
-            </li>
-            <li>
-              <a>Item 2</a>
-            </li>
-          </ul>
-        </div>
-
-        <div className="dropdown dropdown-hover dropdown-right w-full  border">
-          <label tabIndex={0}>
-            <div className="flex gap-2 p-4 hover:text-sky-400">
-              <GiIceSkate className="mt-2 text-xl ml-3"></GiIceSkate> <h3 className=" text-xl ">Shoes</h3>
-            </div>
-          </label>
-          <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100  w-52">
-            <li>
-              <a>Item 1</a>
-            </li>
-            <li>
-              <a>Item 2</a>
-            </li>
-          </ul>
-        </div>
-        <div className="dropdown dropdown-hover dropdown-right w-full  border">
-          <label tabIndex={0}>
-            <div className="flex gap-2 p-4 hover:text-sky-400">
-              <FaShirt className="mt-2 text-xl ml-3"></FaShirt> <h3 className=" text-xl ">Tops & T-Shirts</h3>
-            </div>
-          </label>
-          <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100  w-52">
-            <li>
-              <a>Item 1</a>
-            </li>
-            <li>
-              <a>Item 2</a>
-            </li>
-          </ul>
-        </div>
-        <div className="dropdown dropdown-hover dropdown-right w-full  border">
-          <label tabIndex={0}>
-            <div className="flex gap-2 p-4 hover:text-sky-400">
-              <PiDotsThreeOutlineThin className="mt-2 text-xl ml-3"></PiDotsThreeOutlineThin>{" "}
-              <h3 className=" text-xl ">Others</h3>
-            </div>
-          </label>
-          {/* <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100  w-52">
-            <li>
-              <a>Item 1</a>
-            </li>
-            <li>
-              <a>Item 2</a>
-            </li>
-          </ul> */}
+        <div>
+          {
+            categories.map(category => {
+              return <Link className="dropdown dropdown-hover dropdown-right w-full border">
+                <label tabIndex={0}>
+                  <div className="flex gap-2 p-4 hover:text-sky-400 ">
+                    <FaRegStar className="mt-2 text-xl ml-3"></FaRegStar> <h3 className=" text-xl ">{category.category}</h3>
+                  </div>
+                </label>
+                <ul tabIndex={0} className="dropdown-content flex flex-col z-[1] menu p-2 shadow bg-base-100  w-52">
+                  {
+                    category.products.map(product => {
+                      return <li>
+                        <Link>{product.name}</Link>
+                      </li>
+                    })
+                  }
+                </ul>
+              </Link>
+            })
+          }
         </div>
       </div>
 
@@ -266,9 +141,9 @@ const Banner = () => {
                 <a href="#slide1" className="btn btn-circle">
                   ❯
                 </a>
-              
 
-                
+
+
               </div>
             </div>
           </div>

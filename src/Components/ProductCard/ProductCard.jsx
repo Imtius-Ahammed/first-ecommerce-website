@@ -3,7 +3,7 @@ import { FaCartPlus, FaStar, FaRegStar } from 'react-icons/fa';
 import { BiLinkExternal, BiHeart } from 'react-icons/bi';
 
 const ProductCard = ({ product }) => {
-    console.log(product);
+    // console.log(product);
     const [showTooltip, setShowTooltip] = useState(false);
     const [showTooltip2, setShowTooltip2] = useState(false);
     const [showWishlist, setShowWishlist] = useState(false);
