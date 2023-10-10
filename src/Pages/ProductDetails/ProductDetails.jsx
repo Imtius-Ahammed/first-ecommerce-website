@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { FaCodeCompare, FaHeart, FaStar } from 'react-icons/fa6';
+
+import { FaFacebook, FaMailchimp, FaPinterest, FaTwitter, FaVoicemail,FaCodeCompare, FaHeart, FaStar } from 'react-icons/fa6';
 import { Link } from 'react-router-dom';
 import Descriptions from './Descriptions/Descriptions';
 import AboutBrands from './AboutBrands/AboutBrands';
@@ -18,9 +19,9 @@ const ProductDetails = () => {
 
     return (
         <div className='mx-auto w-full divide-y-2 lg:w-9/12 '>
-            <div className=' flex lg:flex-row flex-col justify-center gap-6'>
+            <div className=' flex lg:flex-row flex-col justify-center gap-6 '>
                 <div className='lg:w-2/4 lg:px-0 px-3  w-full flex gap-2'>
-                    <div className=' w-full lg:w-2/5'>
+                    <div className=' w-full lg:w-2/5 '>
                         <img className='w-full mb-2' src="/src/Assets/Img/product-09-100x100.jpg" alt="" />
                         <img className='w-full  mb-2' src="/src/Assets/Img/product-10-100x100.jpg" alt="" />
                         <img className='w-full  mb-2' src="/src/Assets/Img/product-01-100x100.jpg" alt="" />
@@ -41,7 +42,7 @@ const ProductDetails = () => {
                         <FaStar></FaStar>
                         <span className='text-black'>  (1 Customer review)</span>
                     </div>
-                    <h1 className='lg:text-4xl font-medium mb-4'>$52.00</h1>
+                    <h1 className='lg:text-4xl font-medium mb-4 '>$52.00</h1>
                     <ul className='list-disc ml-10 '>
                         <li>Lorem ipsum dolor sit amet, consetetur sadipscing elitr.</li>
                         <li>Consetetur sadipscing elitr, sed diam nonumy eirmod</li>
@@ -51,7 +52,7 @@ const ProductDetails = () => {
                     <p className='text-red-500 font-medium mb-4'>Available on backorder</p>
                     <button className='btn btn-neutral mb-8' type="submit">Add To Cart</button>
 
-                    <div className='flex items-center gap-6 mb-10'>
+                    <div className='flex items-center gap-6 mb-10 '>
                         <div className='flex items-center gap-2 text-xl hover:text-red-400'>
                             <FaHeart className=''></FaHeart><h3>Wishlist</h3>
 
@@ -72,58 +73,54 @@ const ProductDetails = () => {
             </div>
 
             {/* Frequently Bought Together */}
-            <h1 className='lg:text-3xl font-medium mt-4 mb-2 lg:px-0 px-3'>Frequently Bought Together</h1>
+            <h1 className='lg:text-3xl font-medium border-none mt-8 mb-2 lg:px-0 px-3'>Frequently Bought Together</h1>
             <hr />
 
-            <div className='flex gap-4 my-4 border-none lg:px-0 px-3'>
+            <div className='flex gap-4 my-8 border-none lg:px-0 px-3 '>
                 <div className='flex gap-2 '>
-                    <div><img src="/src/Assets/Img/product-15-100x100.jpg" alt="" /></div>
+                    <div><img className='w-28' src="/src/Assets/Img/product-15-100x100.jpg" alt="" /></div>
                     <div className='flex items-center'>+</div>
-                    <div><img src="/src/Assets/Img/product-10-100x100.jpg" alt="" /></div>
+                    <div><img className='w-28' src="/src/Assets/Img/product-10-100x100.jpg" alt="" /></div>
                 </div>
 
-                <div>
+                <div >
                     <div>
                         <h1>Price for all: <span className='text-red-500'>$77.00</span></h1>
                         <button className='btn btn-warning' type="submit">Add All to Cart</button>
                     </div>
                 </div>
             </div>
-            <div>
-                <ul className='list-disc lg:ml-4 ml-6'>
+            <div className='border-none'>
+                <ul className='list-disc lg:ml-4 ml-6 '>
                     <li>This Product: Pellentesque posuere – $52.00</li>
                     <li>Checked Wool Blend Mini Skirt – $29.00 $25.00</li>
                 </ul>
             </div>
 
-            <div>
-                <div className="text-lg breadcrumbs flex items-center justify-center my-6">
+            <div className='border-none'>
+                <div className="text-xl breadcrumbs  flex items-center justify-center my-6">
                     <ul>
                         <li>
-                            <button onClick={() => handleBtn('Descriptions')}>
+                            <button className='hover:font-bold hover:underline' onClick={() => handleBtn('Descriptions')}>
                                 <Link>Description</Link>
                             </button>
                         </li>
                         <li>
-                            <button onClick={() => handleBtn('RatingsReviews')}>
+                            <button className='hover:font-bold hover:underline' onClick={() => handleBtn('RatingsReviews')}>
                                 <Link>Reviews</Link>
                             </button>
                         </li>
                         <li>
-                            <button onClick={() => handleBtn('AboutBrands')}>
+                            <button className='hover:font-bold hover:underline' onClick={() => handleBtn('AboutBrands')}>
                                 <Link>About Brands</Link>
                             </button>
                         </li>
                         <li>
-                            <button onClick={() => handleBtn('Shipping')}>
+                            <button className='hover:font-bold hover:underline' onClick={() => handleBtn('Shipping')}>
                                 <Link>Shipping & Delivery</Link>
                             </button>
                         </li>
-                        <li>
-                            <button onClick={() => handleBtn('RelatedProducts')}>
-                                <Link>Related Products</Link>
-                            </button>
-                        </li>
+                     
                     </ul>
                 </div>
 
@@ -134,7 +131,16 @@ const ProductDetails = () => {
                     {btn === 'Shipping' && <Shipping />}
                     {btn === 'RelatedProducts' && <RelatedProducts />}
                 </div>
+                
             </div>
+            <div className='grid lg:grid-cols-4 grid-cols-2 my-8 border-none '>
+        <Link className='flex items-center gap-2 lg:text-2xl text-xl border lg:p-5 p-3 hover:text-red-500'><FaFacebook></FaFacebook> Share on Facebook</Link>
+        <Link className='flex items-center gap-2 lg:text-2xl text-xl border lg:p-5 p-3 hover:text-red-500'><FaTwitter></FaTwitter> Tweet this Product</Link> 
+        <Link className='flex items-center gap-2 lg:text-2xl text-xl border lg:p-5 p-3 hover:text-red-500'><FaPinterest></FaPinterest>Pin This Product</Link>
+        <Link className='flex items-center gap-2 lg:text-2xl text-xl border lg:p-5 p-3 hover:text-red-500'><FaVoicemail></FaVoicemail> Mail This Product</Link>
+       
+      </div>
+      <RelatedProducts></RelatedProducts>
         </div>
     );
 };

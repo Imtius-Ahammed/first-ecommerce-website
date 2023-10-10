@@ -57,8 +57,8 @@ const RelatedProducts = () => {
         );
     }
     return (
-        <div className="container mx-auto my-20 relative">
-            <h1 className=' text-4xl font-semibold my-6'>Related Products</h1>
+        <div className="container mx-auto my-20 relative border-none">
+            <h1 className=' text-4xl font-semibold '>Related Products</h1>
             <div className='flex items-center justify-evenly mx-auto lg:w-1/3'>
                 {buttons.map((button, index) => (
                     <button
