@@ -1,10 +1,13 @@
 import { MdArrowDropDown } from '@react-icons/all-files/md/MdArrowDropDown';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Login from '../../../Login/Login';
 import Register from '../../../Login/Register';
+import { AuthContext } from '../../../Contexts/AuthProvider';
 
 const Section_01 = () => {
+
+    const { user, logOut } = useContext(AuthContext);
 
     const [isSignInModalOpen, setSignInModalOpen] = useState(false);
     const [isRegisterModalOpen, setRegisterModalOpen] = useState(false);
@@ -25,6 +28,16 @@ const Section_01 = () => {
 
     const closeRegisterModal = () => {
         setRegisterModalOpen(false);
+    };
+
+    const handleLogOut = () => {
+        logOut()
+            .then(() => {
+
+            })
+            .catch(e => {
+                console.log(e);
+            })
     };
 
     return (
@@ -62,25 +75,37 @@ const Section_01 = () => {
                             </li>
                         </ul>
                     </div>
-                    <div className="px-3">
-                        <button onClick={openSignInModal}>Sign In / Register</button>
-
-                        <dialog id="my_modal_3" className="modal" open={isSignInModalOpen}>
-                            <div className="modal-box">
-                                <Login></Login>
-                                <button onClick={openRegisterModal} className='flex items-center w-full justify-center mt-2'>Don't have an account<span className='font-bold ml-2 underline'>Register</span></button>
+                    {
+                        user?.email ?
+                            <div className='px-3 flex items-center gap-3'>
+                                <h1 className='text-black font-semibold'>{user?.email}</h1>
+                                <button
+                                    className='px-3 py-1 font-semibold text-sm bg-black text-white rounded'
+                                    onClick={handleLogOut}>
+                                    Log Out
+                                </button>
                             </div>
-                        </dialog>
+                            :
+                            <div className="px-3">
+                                <button onClick={openSignInModal}>Sign In / Register</button>
 
-                        <dialog id="register_modal" className="modal" open={isRegisterModalOpen}>
-                            <div className="modal-box">
-                                <Register></Register>
+                                <dialog id="my_modal_3" className="modal" open={isSignInModalOpen}>
+                                    <div className="modal-box">
+                                        <Login></Login>
+                                        <button onClick={openRegisterModal} className='flex items-center w-full justify-center mt-2'>Don't have an account<span className='font-bold ml-2 underline'>Register</span></button>
+                                    </div>
+                                </dialog>
+
+                                <dialog id="register_modal" className="modal" open={isRegisterModalOpen}>
+                                    <div className="modal-box">
+                                        <Register></Register>
+                                    </div>
+                                </dialog>
                             </div>
-                        </dialog>
-                    </div>
+                    }
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 
