@@ -42,7 +42,9 @@ const Login = () => {
        
     
       <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
-      <Link className='flex justify-center underline mt-2'>Forgot your password? Get help</Link>
+      <button className='flex justify-center  mt-2'>Don't have an account?<Link className='font-bold ml-2 underline'>Register</Link></button>
+
+      
     </form>
   
         </div>
