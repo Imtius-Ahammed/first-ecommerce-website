@@ -1,9 +1,25 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../Contexts/AuthProvider';
+import { GoogleAuthProvider } from 'firebase/auth';
+import {FcGoogle} from '@react-icons/all-files/fc/FcGoogle'
 
 const Register = () => {
+  const googleProvider = new GoogleAuthProvider();
+  
 
-  const { createUser, updateUser } = useContext(AuthContext)
+  const { createUser, updateUser,signInWithGoogle } = useContext(AuthContext);
+
+
+  const handleGoogleLogin = ()=>{
+    signInWithGoogle(googleProvider)
+    .then(res=>{
+      const user=res.user;
+      console.log(user);
+     })
+    .catch(e=>{
+      console.log(e)
+    })
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -77,6 +93,8 @@ const Register = () => {
         </div>
 
         <input className="btn bg-black hover:bg-red-400 text-white font-bold mb-5   text-xl w-full" value='Register' type="submit" />
+        <div className="divider">OR</div>
+        <button onClick={handleGoogleLogin} className=' text-3xl flex justify-center' type="submit"> <FcGoogle ></FcGoogle></button>
 
       </form>
     </div>
