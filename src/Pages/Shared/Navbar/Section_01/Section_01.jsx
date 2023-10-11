@@ -91,6 +91,7 @@ const Section_01 = () => {
 
                                 <dialog id="my_modal_3" className="modal" open={isSignInModalOpen}>
                                     <div className="modal-box">
+                                        <button onClick={closeSignInModal} className='btn btn-sm btn-circle btn-ghost absolute right-2 top-2'>X</button>
                                         <Login></Login>
                                         <button onClick={openRegisterModal} className='flex items-center w-full justify-center mt-2'>Don't have an account<span className='font-bold ml-2 underline'>Register</span></button>
                                     </div>
@@ -98,6 +99,7 @@ const Section_01 = () => {
 
                                 <dialog id="register_modal" className="modal" open={isRegisterModalOpen}>
                                     <div className="modal-box">
+                                        <button onClick={closeRegisterModal} className='btn btn-sm btn-circle btn-ghost absolute right-2 top-2'>X</button>
                                         <Register></Register>
                                     </div>
                                 </dialog>

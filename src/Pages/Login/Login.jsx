@@ -53,8 +53,6 @@ const Login = () => {
         <input className="btn bg-black hover:bg-red-400 text-white font-bold mb-5   text-xl w-full" value='login' type="submit" />
 
       </form>
-      <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
-
     </div>
   );
 };
