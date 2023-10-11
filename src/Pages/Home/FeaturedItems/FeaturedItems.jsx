@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ProductCard from '../../../Components/ProductCard/ProductCard';
+import ProductCard from '../../ProductCard/ProductCard';
 
 const FeaturedItems = () => {
     const mens = [

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import ProductCard from '../../../Components/ProductCard/ProductCard';
+import ProductCard from '../../ProductCard/ProductCard';
 
 const RightContent = () => {
     const [products, setProducts] = useState([]);
