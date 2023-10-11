@@ -78,7 +78,7 @@ const Section_01 = () => {
                     {
                         user?.email ?
                             <div className='px-3 flex items-center gap-3'>
-                                <h1 className='text-black font-semibold'>{user?.email}</h1>
+                                <h1 className='text-black font-semibold'>{user?.displayName}</h1>
                                 <button
                                     className='px-3 py-1 font-semibold text-sm bg-black text-white rounded'
                                     onClick={handleLogOut}>
