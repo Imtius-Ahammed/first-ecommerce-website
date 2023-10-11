@@ -1,9 +1,32 @@
 import { MdArrowDropDown } from '@react-icons/all-files/md/MdArrowDropDown';
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Login from '../../../Login/Login';
+import Register from '../../../Login/Register';
 
 const Section_01 = () => {
+
+    const [isSignInModalOpen, setSignInModalOpen] = useState(false);
+    const [isRegisterModalOpen, setRegisterModalOpen] = useState(false);
+
+    const openSignInModal = () => {
+        setSignInModalOpen(true);
+        closeRegisterModal();
+    };
+
+    const closeSignInModal = () => {
+        setSignInModalOpen(false);
+    };
+
+    const openRegisterModal = () => {
+        setRegisterModalOpen(true);
+        closeSignInModal();
+    };
+
+    const closeRegisterModal = () => {
+        setRegisterModalOpen(false);
+    };
+
     return (
         <div className='w-full py-2 border-b-2'>
             <div className='flex lg:flex-row flex-col gap-2 mx-auto w-full lg:w-9/12 font-thin items-center justify-between text-slate-500'>
@@ -39,15 +62,21 @@ const Section_01 = () => {
                             </li>
                         </ul>
                     </div>
-                    <div className='px-3'>
-                        <button  onClick={()=>document.getElementById('my_modal_3').showModal()}>Sign In / Register</button>
-                        {/* You can open the modal using document.getElementById('ID').showModal() method */}
+                    <div className="px-3">
+                        <button onClick={openSignInModal}>Sign In / Register</button>
 
-<dialog id="my_modal_3" className="modal">
-  <div className="modal-box">
-   <Login></Login>
-  </div>
-</dialog>
+                        <dialog id="my_modal_3" className="modal" open={isSignInModalOpen}>
+                            <div className="modal-box">
+                                <Login></Login>
+                                <button onClick={openRegisterModal} className='flex items-center w-full justify-center mt-2'>Don't have an account<span className='font-bold ml-2 underline'>Register</span></button>
+                            </div>
+                        </dialog>
+
+                        <dialog id="register_modal" className="modal" open={isRegisterModalOpen}>
+                            <div className="modal-box">
+                                <Register></Register>
+                            </div>
+                        </dialog>
                     </div>
                 </div>
             </div>
