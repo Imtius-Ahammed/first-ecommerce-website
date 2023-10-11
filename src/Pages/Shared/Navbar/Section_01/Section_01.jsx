@@ -8,7 +8,7 @@ import { AuthContext } from '../../../Contexts/AuthProvider';
 const Section_01 = () => {
 
     const { user, logOut } = useContext(AuthContext);
-    const [isLoggedIn, setIsLoggedIn] = useState(true);
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
 
     const [isSignInModalOpen, setSignInModalOpen] = useState(false);
     const [isRegisterModalOpen, setRegisterModalOpen] = useState(false);
