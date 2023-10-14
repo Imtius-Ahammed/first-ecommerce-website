@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
-import { FaFacebook, FaMailchimp, FaPinterest, FaTwitter, FaVoicemail,FaCodeCompare, FaHeart, FaStar } from 'react-icons/fa6';
-import { Link } from 'react-router-dom';
+import { FaFacebook, FaMailchimp, FaPinterest, FaTwitter, FaVoicemail, FaCodeCompare, FaHeart, FaStar } from 'react-icons/fa6';
+import { Link, useLoaderData } from 'react-router-dom';
 import Descriptions from './Descriptions/Descriptions';
 import AboutBrands from './AboutBrands/AboutBrands';
 import Shipping from './Shipping/Shipping';
@@ -10,6 +10,10 @@ import RelatedProducts from './RelatedProducts/RelatedProducts';
 
 
 const ProductDetails = () => {
+
+    const productDetails = useLoaderData();
+    console.log(productDetails);
+    const { category, image, name, option, price, rating, _id} = productDetails;
 
     const [btn, setHandleBtn] = useState('Descriptions');
 
@@ -29,20 +33,18 @@ const ProductDetails = () => {
                         <img className='w-full  mb-2' src="/src/Assets/Img/product-15-100x100.jpg" alt="" />
                     </div>
                     <div>
-                        <img className='w-fit  mb-2' src="/src/Assets/Img/product-10.jpg" alt="" />
+                        <img className='w-fit  mb-2' src={image} alt="" />
                     </div>
 
                 </div>
                 <div className='w-full  lg:w-2/4 lg:px-0 px-3  '>
-                    <h1 className='lg:text-4xl  font-medium'>Pellentesque posuere</h1>
+                    <h1 className='lg:text-4xl  font-medium'>{name}</h1>
                     <div className='flex items-center mb-4 text-orange-300'>
                         <FaStar></FaStar>
-                        <FaStar></FaStar>
-                        <FaStar></FaStar>
-                        <FaStar></FaStar>
+                        {rating}
                         <span className='text-black'>  (1 Customer review)</span>
                     </div>
-                    <h1 className='lg:text-4xl font-medium mb-4 '>$52.00</h1>
+                    <h1 className='lg:text-4xl font-medium mb-4 '>${price}</h1>
                     <ul className='list-disc ml-10 '>
                         <li>Lorem ipsum dolor sit amet, consetetur sadipscing elitr.</li>
                         <li>Consetetur sadipscing elitr, sed diam nonumy eirmod</li>
@@ -92,7 +94,7 @@ const ProductDetails = () => {
             </div>
             <div className='border-none'>
                 <ul className='list-disc lg:ml-4 ml-6 '>
-                    <li>This Product: Pellentesque posuere – $52.00</li>
+                    <li>This Product: {name} – ${price}</li>
                     <li>Checked Wool Blend Mini Skirt – $29.00 $25.00</li>
                 </ul>
             </div>
@@ -120,7 +122,7 @@ const ProductDetails = () => {
                                 <Link>Shipping & Delivery</Link>
                             </button>
                         </li>
-                     
+
                     </ul>
                 </div>
 
@@ -131,16 +133,16 @@ const ProductDetails = () => {
                     {btn === 'Shipping' && <Shipping />}
                     {btn === 'RelatedProducts' && <RelatedProducts />}
                 </div>
-                
+
             </div>
             <div className='grid lg:grid-cols-4 grid-cols-2 my-8 border-none '>
-        <Link className='flex items-center gap-2 lg:text-2xl text-xl border lg:p-5 p-3 hover:text-red-500'><FaFacebook></FaFacebook> Share on Facebook</Link>
-        <Link className='flex items-center gap-2 lg:text-2xl text-xl border lg:p-5 p-3 hover:text-red-500'><FaTwitter></FaTwitter> Tweet this Product</Link> 
-        <Link className='flex items-center gap-2 lg:text-2xl text-xl border lg:p-5 p-3 hover:text-red-500'><FaPinterest></FaPinterest>Pin This Product</Link>
-        <Link className='flex items-center gap-2 lg:text-2xl text-xl border lg:p-5 p-3 hover:text-red-500'><FaVoicemail></FaVoicemail> Mail This Product</Link>
-       
-      </div>
-      <RelatedProducts></RelatedProducts>
+                <Link className='flex items-center gap-2 lg:text-2xl text-xl border lg:p-5 p-3 hover:text-red-500'><FaFacebook></FaFacebook> Share on Facebook</Link>
+                <Link className='flex items-center gap-2 lg:text-2xl text-xl border lg:p-5 p-3 hover:text-red-500'><FaTwitter></FaTwitter> Tweet this Product</Link>
+                <Link className='flex items-center gap-2 lg:text-2xl text-xl border lg:p-5 p-3 hover:text-red-500'><FaPinterest></FaPinterest>Pin This Product</Link>
+                <Link className='flex items-center gap-2 lg:text-2xl text-xl border lg:p-5 p-3 hover:text-red-500'><FaVoicemail></FaVoicemail> Mail This Product</Link>
+
+            </div>
+            <RelatedProducts></RelatedProducts>
         </div>
     );
 };
