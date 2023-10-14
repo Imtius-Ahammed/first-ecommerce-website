@@ -9,7 +9,7 @@ const Categories = ({ categories }) => {
             <div className='flex flex-col gap-6'>
                 {
                     categories.map(category => {
-                        return <Link className='font-bold hover:text-orange-600'>
+                        return <Link key={category._id} className='font-bold hover:text-orange-600'>
                             {category.category}
                         </Link>
                     })

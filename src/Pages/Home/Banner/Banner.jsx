@@ -27,7 +27,7 @@ const Banner = ({ categories }) => {
         <div>
           {
             categories.map(category => {
-              return <Link className="dropdown dropdown-hover dropdown-right w-full border">
+              return <Link key={category._id} className="dropdown dropdown-hover dropdown-right w-full border">
                 <label tabIndex={0}>
                   <div className="flex gap-2 p-4 hover:text-sky-400 ">
                     <FaRegStar className="mt-2 text-xl ml-3"></FaRegStar> <h3 className=" text-xl ">{category.category}</h3>
