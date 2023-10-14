@@ -1,11 +1,25 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../Contexts/AuthProvider';
 import { useNavigate } from 'react-router';
+import { GoogleAuthProvider } from 'firebase/auth';
+import { FcGoogle } from '@react-icons/all-files/fc/FcGoogle';
 
 const Login = () => {
-  
-  const {logIn} = useContext(AuthContext);
+  const googleProvider = new GoogleAuthProvider();
+  const {logIn,signInWithGoogle} = useContext(AuthContext);
   const navigate = useNavigate();
+
+  const handleGoogleLogin = ()=>{
+    signInWithGoogle(googleProvider)
+    .then(res=>{
+      const user=res.user;
+      console.log(user);
+     })
+    .catch(e=>{
+      console.log(e)
+    })
+  }
+
 
   const handleLogin = (e) => {
     e.preventDefault()
@@ -51,6 +65,9 @@ const Login = () => {
         </div>
 
         <input className="btn bg-black hover:bg-red-400 text-white font-bold mb-5   text-xl w-full" value='login' type="submit" />
+
+        <div className="divider">OR</div>
+        <button onClick={handleGoogleLogin} className=' text-3xl flex justify-center' type="submit"> <FcGoogle ></FcGoogle></button>
 
       </form>
     </div>
