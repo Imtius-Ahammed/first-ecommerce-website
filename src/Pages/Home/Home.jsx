@@ -15,18 +15,25 @@ const Home = () => {
     const [categories] = useCategories();
     const [products] = useProducts();
 
+    const newArrivals = products.filter(product => product.option === 'new arrivals');
+
+    const featuredItems = products.filter(product => product.option === 'featured items');
+
     return (
         <>
             <Banner categories={categories} products={products}></Banner>
+
             <Trendings categories={categories} products={products}></Trendings>
-            <NewArrivals />
+
+            <NewArrivals option={newArrivals} />
+
             <AdSection></AdSection>
 
-            <FeaturedItems />
+            <FeaturedItems option={featuredItems} />
+
             <LatestNews></LatestNews>
-            {/* ********************************** */}
+
             <GetInTouch></GetInTouch>
-            {/* ********************************** */}
         </>
 
 

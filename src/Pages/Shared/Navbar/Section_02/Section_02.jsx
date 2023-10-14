@@ -25,7 +25,6 @@ const Section_02 = () => {
                             </details>
                         </li> */}
                         <li><Link to='/shops' className='hover:text-orange-500 hover:border-b-2 hover:bg-white border-orange-500'>Shops</Link></li>
-                        <li><Link to='/product-details' className='hover:text-orange-500 hover:border-b-2 hover:bg-white border-orange-500'>ProductDetails</Link></li>
                         <li><Link to='/blogs' className='hover:text-orange-500 hover:border-b-2 hover:bg-white border-orange-500'>Blog</Link></li>
                         <li><Link to='/about-us' className='hover:text-orange-500 hover:border-b-2 hover:bg-white border-orange-500'>About Us</Link></li>
                         <li><Link to='/contact-us' className='hover:text-orange-500 hover:border-b-2 hover:bg-white border-orange-500'>Contact Us</Link></li>
