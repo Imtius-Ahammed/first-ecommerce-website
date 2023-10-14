@@ -9,7 +9,7 @@ const RightContent = () => {
             .then(data => setProducts(data))
             .catch(err => console.error(err))
     }, [])
-    console.log(products);
+    // console.log(products);
     
     return (
         <div className=''>

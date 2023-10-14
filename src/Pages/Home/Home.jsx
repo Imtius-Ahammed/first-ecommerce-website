@@ -7,23 +7,11 @@ import Trendings from './Trendings/Trendings';
 import AdSection from './AdSection/AdSection';
 import LatestNews from './LatestNews/LatestNews';
 import GetInTouch from '../Shared/GetInTouch/GetInTouch';
+import useCategories from '../../Hooks/useCategories';
 
 const Home = () => {
 
-    const [categories, setCategories] = useState([]);
-
-    useEffect(() => {
-        try{
-            fetch('http://localhost:5000/products-categories')
-            .then(res => res.json())
-            .then(data => {
-                setCategories(data)
-            })
-        }
-        catch(e){
-            console.log(e);
-        }
-    },[]);
+    const [categories] = useCategories();
 
     return (
         <>
