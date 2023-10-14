@@ -11,11 +11,10 @@ const ProductCard = () => {
     return (
         <>
             {
-                products.map(product => product.products.map(item => {
-                    const { image, rating, name, price } = item;
-                    const id = 1;
+                products.map(product => {
+                    const { _id, image, rating, name, price } = product;
 
-                    return <div className={`py-2 hover:scale-105 duration-500 relative`}>
+                    return <div key={_id} className={`py-2 hover:scale-105 duration-500 relative`}>
                         <div className=' bg-slate-200 h-4/5'>
                             <img src={image} alt="" className='px-4 py-10' />
                         </div>
@@ -33,7 +32,7 @@ const ProductCard = () => {
                             </div>
                         </div>
                         <div className='absolute top-6 right-0 pr-4'>
-                            <Link to={`/product-details/${id}`}>
+                            <Link to={`/product-details/${_id}`}>
                                 <button
                                     className="bg-gray-100 rounded-full w-9 h-9 flex items-center justify-center text-2xl font-semibold hover:bg-emerald-400 hover:text-white mb-3"
                                 >
@@ -46,7 +45,7 @@ const ProductCard = () => {
                             </button>
                         </div>
                     </div>
-                }))
+                })
             }
         </>
     );

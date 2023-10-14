@@ -12,7 +12,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 
-const Banner = ({ categories }) => {
+const Banner = ({ categories, products }) => {
   return (
     <div className="container mx-auto lg:w-9/12 max-h-full flex">
       <div className="w-4/12 border shadow-md lg:block hidden">
@@ -26,18 +26,21 @@ const Banner = ({ categories }) => {
 
         <div>
           {
-            categories.map(category => {
-              return <Link key={category._id} className="dropdown dropdown-hover dropdown-right w-full border">
+            categories.map(items => {
+              const {_id, category} = items;
+              const categoryProducts = products.filter((product) => product.category === category);
+
+              return <Link key={_id} className="dropdown dropdown-hover dropdown-right w-full border">
                 <label tabIndex={0}>
                   <div className="flex gap-2 p-4 hover:text-sky-400 ">
-                    <FaRegStar className="mt-2 text-xl ml-3"></FaRegStar> <h3 className=" text-xl ">{category.category}</h3>
+                    <FaRegStar className="mt-2 text-xl ml-3"></FaRegStar> <h3 className=" text-xl ">{category}</h3>
                   </div>
                 </label>
                 <ul tabIndex={0} className="dropdown-content flex flex-col z-[1] menu p-2 shadow bg-base-100  w-52">
                   {
-                    category.products.map(product => {
-                      return <li>
-                        <Link>{product.name}</Link>
+                    categoryProducts.map(products => {
+                      return <li key={products._id}>
+                        <Link to={`/product-details/${products._id}`}>{products.name}</Link>
                       </li>
                     })
                   }

@@ -1,6 +1,5 @@
 import React from 'react';
 import ProductCard from '../../../Components/ProductCard/ProductCard';
-import useProducts from '../../../Hooks/useProducts';
 
 const RightContent = () => {
     
