@@ -24,16 +24,16 @@ const ProductDetails = () => {
     return (
         <div className='mx-auto w-full divide-y-2 lg:w-9/12 '>
             <div className=' flex lg:flex-row flex-col justify-center gap-6 '>
-                <div className='lg:w-2/4 lg:px-0 px-3  w-full flex gap-2'>
-                    <div className=' w-full lg:w-2/5 '>
-                        <img className='w-full mb-2' src="/src/Assets/Img/product-09-100x100.jpg" alt="" />
-                        <img className='w-full  mb-2' src="/src/Assets/Img/product-10-100x100.jpg" alt="" />
-                        <img className='w-full  mb-2' src="/src/Assets/Img/product-01-100x100.jpg" alt="" />
-                        <img className='w-full  mb-2' src="/src/Assets/Img/product-02-100x100.jpg" alt="" />
-                        <img className='w-full  mb-2' src="/src/Assets/Img/product-15-100x100.jpg" alt="" />
+                <div className='lg:w-2/4 lg:px-0 px-3  w-full flex flex-col-reverse lg:flex-row gap-2'>
+                    <div className=' w-full flex lg:flex-col flex-row flex-wrap my-6 lg:w-2/5 '>
+                        <img className='w-32 mx-auto mb-2' src="/src/Assets/Img/product-09-100x100.jpg" alt="" />
+                        <img className='w-32  mx-auto mb-2' src="/src/Assets/Img/product-10-100x100.jpg" alt="" />
+                        <img className='w-32  mx-auto mb-2' src="/src/Assets/Img/product-01-100x100.jpg" alt="" />
+                        <img className='w-32  mx-auto mb-2' src="/src/Assets/Img/product-02-100x100.jpg" alt="" />
+                        <img className='w-32  mx-auto mb-2' src="/src/Assets/Img/product-15-100x100.jpg" alt="" />
                     </div>
-                    <div>
-                        <img className='w-fit  mb-2' src={image} alt="" />
+                    <div className='flex items-center justify-center '>
+                        <img className='w-full mb-2' src={image} alt="" />
                     </div>
 
                 </div>
