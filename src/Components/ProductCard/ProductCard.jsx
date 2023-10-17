@@ -9,8 +9,8 @@ const ProductCard = ({ option }) => {
 
     return (
         <div key={_id} className={`py-2 hover:scale-105 duration-500 relative`}>
-            <div className=' bg-slate-200 h-4/5'>
-                <img src={image} alt="" className='px-4 py-10' />
+            <div className=' bg-slate-200 h-96'>
+                <img src={image} alt="" className='p-3 w-full h-full' />
             </div>
             <div className='pt-2 px-1'>
                 <p className='flex items-center gap-1 text-yellow-500 my-2'>

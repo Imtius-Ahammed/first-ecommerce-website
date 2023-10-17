@@ -12,8 +12,9 @@ import RelatedProducts from './RelatedProducts/RelatedProducts';
 const ProductDetails = () => {
 
     const productDetails = useLoaderData();
-    console.log(productDetails);
-    const { category, image, name, option, price, rating, _id} = productDetails;
+    const { category, image, sample_img, name, option, price, rating, _id} = productDetails;
+
+    console.log(sample_img.map(img => img.img1));
 
     const [btn, setHandleBtn] = useState('Descriptions');
 
@@ -25,17 +26,15 @@ const ProductDetails = () => {
         <div className='mx-auto w-full divide-y-2 lg:w-9/12 '>
             <div className=' flex lg:flex-row flex-col justify-center gap-6 '>
                 <div className='lg:w-2/4 lg:px-0 px-3  w-full flex flex-col-reverse lg:flex-row gap-2'>
-                    <div className=' w-full flex lg:flex-col flex-row flex-wrap my-6 lg:w-2/5 '>
-                        <img className='w-32 mx-auto mb-2' src="/src/Assets/Img/product-09-100x100.jpg" alt="" />
-                        <img className='w-32  mx-auto mb-2' src="/src/Assets/Img/product-10-100x100.jpg" alt="" />
-                        <img className='w-32  mx-auto mb-2' src="/src/Assets/Img/product-01-100x100.jpg" alt="" />
-                        <img className='w-32  mx-auto mb-2' src="/src/Assets/Img/product-02-100x100.jpg" alt="" />
-                        <img className='w-32  mx-auto mb-2' src="/src/Assets/Img/product-15-100x100.jpg" alt="" />
-                    </div>
-                    <div className='flex items-center justify-center '>
-                        <img className='w-full mb-2' src={image} alt="" />
-                    </div>
+                    <div className='w-full flex lg:flex-col flex-row flex-wrap my-6 lg:w-2/5 '>
+                        {
 
+                        }
+                        <img className='w-32 mx-auto mb-2' src="/src/Assets/Img/product-09-100x100.jpg" alt="" />
+                    </div>
+                    <div className='flex items-center justify-center w-96 h-96'>
+                        <img className='w-full h-96 mb-2' src={image} alt="" />
+                    </div>
                 </div>
                 <div className='w-full  lg:w-2/4 lg:px-0 px-3  '>
                     <h1 className='lg:text-4xl  font-medium'>{name}</h1>
