@@ -12,14 +12,19 @@ import RelatedProducts from './RelatedProducts/RelatedProducts';
 const ProductDetails = () => {
 
     const productDetails = useLoaderData();
-    const { category, image, sample_img, name, option, price, rating, _id} = productDetails;
-
-    console.log(sample_img.map(img => img.img1));
+    const { category, image, sample_img, name, option, price, rating, _id } = productDetails;
 
     const [btn, setHandleBtn] = useState('Descriptions');
+    const [showImage, setShowImage] = useState(null);
+    const [hideImage, setHideImage] = useState(false);
 
     const handleBtn = (componentName) => {
         setHandleBtn(componentName);
+    };
+
+    const handleShowImageBtn = (index) => {
+        setShowImage(index);
+        setHideImage(true)
     }
 
     return (
@@ -28,12 +33,20 @@ const ProductDetails = () => {
                 <div className='lg:w-2/4 lg:px-0 px-3  w-full flex flex-col-reverse lg:flex-row gap-2'>
                     <div className='w-full flex lg:flex-col flex-row flex-wrap my-6 lg:w-2/5 '>
                         {
-
+                            sample_img.map((img, index) => {
+                                return <button key={index} onClick={() => handleShowImageBtn(index)}>
+                                    <img className='w-32 mx-auto mb-2' src={img} alt="" />
+                                </button>
+                            })
                         }
-                        <img className='w-32 mx-auto mb-2' src="/src/Assets/Img/product-09-100x100.jpg" alt="" />
                     </div>
                     <div className='flex items-center justify-center w-96 h-96'>
-                        <img className='w-full h-96 mb-2' src={image} alt="" />
+                        {
+                            !showImage && !hideImage ?
+                                <img className='w-full h-96 mb-2' src={image} alt="" />
+                                :
+                                <img className='w-full h-96 mb-2' src={sample_img[showImage]} alt="" />
+                        }
                     </div>
                 </div>
                 <div className='w-full  lg:w-2/4 lg:px-0 px-3  '>
