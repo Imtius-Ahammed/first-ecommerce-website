@@ -1,18 +1,16 @@
 import React, { useState } from 'react';
-
-import { FaFacebook, FaMailchimp, FaPinterest, FaTwitter, FaVoicemail, FaCodeCompare, FaHeart, FaStar } from 'react-icons/fa6';
+import { FaCodeCompare, FaHeart, FaStar } from 'react-icons/fa6';
 import { Link, useLoaderData } from 'react-router-dom';
-import Descriptions from './Descriptions/Descriptions';
-import AboutBrands from './AboutBrands/AboutBrands';
-import Shipping from './Shipping/Shipping';
-import RatingsReviews from './RatingsReviews/RatingsReviews';
 import RelatedProducts from './RelatedProducts/RelatedProducts';
+import Social from './Social/Social';
+import FrequentlyBought from './FrequentlyBought/FrequentlyBought';
+import DetailsBtn from './DetailsBtn/DetailsBtn';
 
 
 const ProductDetails = () => {
 
     const productDetails = useLoaderData();
-    const { category, image, sample_img, name, option, price, rating, _id } = productDetails;
+    const { category, description, image, sample_img, name, option, tag, price, rating, _id } = productDetails;
 
     const [btn, setHandleBtn] = useState('Descriptions');
     const [showImage, setShowImage] = useState(null);
@@ -28,12 +26,12 @@ const ProductDetails = () => {
     }
 
     return (
-        <div className='mx-auto w-full divide-y-2 lg:w-9/12 '>
-            <div className=' flex lg:flex-row flex-col justify-center gap-6 '>
+        <div className='mx-auto w-full lg:w-9/12 '>
+            <div className='flex lg:flex-row flex-col justify-center gap-6'>
                 <div className='lg:w-2/4 lg:px-0 px-3  w-full flex flex-col-reverse lg:flex-row gap-2'>
                     <div className='w-full flex lg:flex-col flex-row flex-wrap my-6 lg:w-2/5 '>
                         {
-                            sample_img.map((img, index) => {
+                            sample_img.slice(0,3).map((img, index) => {
                                 return <button key={index} onClick={() => handleShowImageBtn(index)}>
                                     <img className='w-32 mx-auto mb-2' src={img} alt="" />
                                 </button>
@@ -57,13 +55,10 @@ const ProductDetails = () => {
                         <span className='text-black'>  (1 Customer review)</span>
                     </div>
                     <h1 className='lg:text-4xl font-medium mb-4 '>${price}</h1>
-                    <ul className='list-disc ml-10 '>
-                        <li>Lorem ipsum dolor sit amet, consetetur sadipscing elitr.</li>
-                        <li>Consetetur sadipscing elitr, sed diam nonumy eirmod</li>
-                        <li>Suspendisse ultrices mauris diam</li>
-                    </ul>
-                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat</p>
-                    <p className='text-red-500 font-medium mb-4'>Available on backorder</p>
+                    <p className='list-disc'>
+                        {description}
+                    </p>
+                    <p className='text-green-500 mt-3 font-medium mb-4'>In Stock</p>
                     <button className='btn btn-neutral mb-8' type="submit">Add To Cart</button>
 
                     <div className='flex items-center gap-6 mb-10 '>
@@ -78,82 +73,16 @@ const ProductDetails = () => {
                     <hr />
 
                     <div>
-                        <h1 className='mt-4 mb-2'>SKU: <span className='ml-2 text-slate-500'> WVN-13</span> </h1>
-                        <h1 className='mb-2'>Categories:   <Link className='ml-2 text-slate-500'>Accessories</Link>, <Link className='text-slate-500'>Backpack</Link></h1>
-                        <p>Tags: <span className='ml-2 text-slate-500'>Tag-02,Tag-08</span></p>
-                    </div>
-
-                </div>
-            </div>
-
-            {/* Frequently Bought Together */}
-            <h1 className='lg:text-3xl font-medium border-none mt-8 mb-2 lg:px-0 px-3'>Frequently Bought Together</h1>
-            <hr />
-
-            <div className='flex gap-4 my-8 border-none lg:px-0 px-3 '>
-                <div className='flex gap-2 '>
-                    <div><img className='w-28' src="/src/Assets/Img/product-15-100x100.jpg" alt="" /></div>
-                    <div className='flex items-center'>+</div>
-                    <div><img className='w-28' src="/src/Assets/Img/product-10-100x100.jpg" alt="" /></div>
-                </div>
-
-                <div >
-                    <div>
-                        <h1>Price for all: <span className='text-red-500'>$77.00</span></h1>
-                        <button className='btn btn-warning' type="submit">Add All to Cart</button>
+                        <h1 className='mt-4 mb-2 font-bold uppercase bg-sky-900 text-white w-36 rounded text-center p-1'>{option} </h1>
+                        <h1 className='mb-2'>Categories:   <Link className='text-slate-500'>{category}</Link></h1>
+                        <p>Tags: <span className='ml-2 text-slate-500'>{tag}</span></p>
                     </div>
                 </div>
             </div>
-            <div className='border-none'>
-                <ul className='list-disc lg:ml-4 ml-6 '>
-                    <li>This Product: {name} – ${price}</li>
-                    <li>Checked Wool Blend Mini Skirt – $29.00 $25.00</li>
-                </ul>
-            </div>
 
-            <div className='border-none'>
-                <div className="text-xl breadcrumbs  flex items-center justify-center my-6">
-                    <ul>
-                        <li>
-                            <button className='hover:font-bold hover:underline' onClick={() => handleBtn('Descriptions')}>
-                                <Link>Description</Link>
-                            </button>
-                        </li>
-                        <li>
-                            <button className='hover:font-bold hover:underline' onClick={() => handleBtn('RatingsReviews')}>
-                                <Link>Reviews</Link>
-                            </button>
-                        </li>
-                        <li>
-                            <button className='hover:font-bold hover:underline' onClick={() => handleBtn('AboutBrands')}>
-                                <Link>About Brands</Link>
-                            </button>
-                        </li>
-                        <li>
-                            <button className='hover:font-bold hover:underline' onClick={() => handleBtn('Shipping')}>
-                                <Link>Shipping & Delivery</Link>
-                            </button>
-                        </li>
-
-                    </ul>
-                </div>
-
-                <div>
-                    {btn === 'Descriptions' && <Descriptions />}
-                    {btn === 'RatingsReviews' && <RatingsReviews />}
-                    {btn === 'AboutBrands' && <AboutBrands />}
-                    {btn === 'Shipping' && <Shipping />}
-                    {btn === 'RelatedProducts' && <RelatedProducts />}
-                </div>
-
-            </div>
-            <div className='grid lg:grid-cols-4 grid-cols-2 my-8 border-none '>
-                <Link className='flex items-center gap-2 lg:text-2xl text-xl border lg:p-5 p-3 hover:text-red-500'><FaFacebook></FaFacebook> Share on Facebook</Link>
-                <Link className='flex items-center gap-2 lg:text-2xl text-xl border lg:p-5 p-3 hover:text-red-500'><FaTwitter></FaTwitter> Tweet this Product</Link>
-                <Link className='flex items-center gap-2 lg:text-2xl text-xl border lg:p-5 p-3 hover:text-red-500'><FaPinterest></FaPinterest>Pin This Product</Link>
-                <Link className='flex items-center gap-2 lg:text-2xl text-xl border lg:p-5 p-3 hover:text-red-500'><FaVoicemail></FaVoicemail> Mail This Product</Link>
-
-            </div>
+            <FrequentlyBought productDetails={productDetails} />
+            <DetailsBtn btn={btn} handleBtn={handleBtn} />
+            <Social />
             <RelatedProducts></RelatedProducts>
         </div>
     );
