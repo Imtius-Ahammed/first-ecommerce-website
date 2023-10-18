@@ -18,7 +18,7 @@ const Shops = () => {
         const items = products.filter(product => product.category === category);
         setSelectedProducts(items)
         setSelected(true)
-        if(selectedProducts.length > 9){
+        if(selectedProducts.length < 9){
             setShowBtn(false)
         }
     }
