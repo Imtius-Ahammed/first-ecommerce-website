@@ -12,7 +12,7 @@ const TopRated = ({ products }) => {
                     products.map(product => {
                         const {_id, rating, name, image, price} = product;
                         if (rating >= 4.8) {
-                            return <div className='w-full flex gap-2 items-center justify-between border-b-2 py-3'>
+                            return <div key={_id} className='w-full flex gap-2 items-center justify-between border-b-2 py-3'>
                                 <div className='w-1/3'>
                                     <img src={image} alt="" />
                                 </div>
