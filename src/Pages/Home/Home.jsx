@@ -39,7 +39,6 @@ const Home = () => {
             <Trendings
                 categories={categories}
                 selectedProducts={selectedProducts}
-                selected={selected}
                 handleComponent={handleComponent}>
             </Trendings>
 

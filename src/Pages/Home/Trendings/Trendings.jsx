@@ -1,8 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import ProductCard from '../../../Components/ProductCard/ProductCard';
 
-const Trendings = ({ categories, selectedProducts, selected, handleComponent }) => {
+const Trendings = ({ categories, selectedProducts, handleComponent }) => {
 
     const trendingCategory = categories.filter(category => {
         const result = category.option === 'trending';
@@ -25,18 +24,18 @@ const Trendings = ({ categories, selectedProducts, selected, handleComponent }) 
                             <img className='h-24 lg:h-44 w-24 lg:w-44 rounded-full' src={icon} alt="" />
                             <div className='text-center p-5'>
                                 <button onClick={()=>handleComponent(category)} className='lg:text-2xl md:text-2xl font-medium hover:underline hover:text-red-500'>{category}</button>
-                                <p>{selectedProducts.length} <span>Products</span></p>
+                                <p>{trendingCategory.length} <span>Products</span></p>
                             </div>
                         </div>
                     })
                 }
             </div>
 
-            <div className={selected ? "mx-4" : 'hidden'}>
+            <div className="mx-4">
                 <div className="grid grid-cols-1  lg:grid-cols-3 gap-4">
                     {
                         selectedProducts.map(products => {
-                            return <ProductCard option={products} />
+                            return <ProductCard key={products._id} option={products} />
                         })
                     }
                 </div>
