@@ -1,21 +1,25 @@
-import { GiIceSkate, GiTravelDress } from "react-icons/gi";
 import {
   FaAlignLeft,
-  FaCircleDollarToSlot,
-  FaPersonBooth,
-  FaPersonDressBurst,
   FaRegStar,
-  FaShirt,
 } from "react-icons/fa6";
-import { PiDotsThreeOutlineThin } from "react-icons/pi";
-import React from "react";
-import { Link } from "react-router-dom";
 
+import React, { useState } from "react";
+import ProductCard from "../../../Components/ProductCard/ProductCard";
 
 const Banner = ({ categories, products }) => {
+
+  const [selected, setSelected] = useState(false);
+  const [selectedProducts, setSelectedProducts] = useState(products);
+
+  const handleComponent = (category) => {
+    const categoryProducts = products.filter((product) => product.category === category);
+    setSelectedProducts(categoryProducts)
+    setSelected(true);
+  }
+
   return (
-    <div className="container mx-auto lg:w-9/12 max-h-full flex">
-      <div className="w-4/12 border shadow-md lg:block hidden">
+    <div className="container mx-auto flex gap-4 lg:w-9/12 max-h-full">
+      <div className="w-4/12 border shadow-md h-full lg:block hidden">
         <div className="dropdown  dropdown-right  w-full border ">
           <label tabIndex={0}>
             <div className="flex gap-2 p-4 bg-black text-white hover:text-sky-400">
@@ -24,34 +28,27 @@ const Banner = ({ categories, products }) => {
           </label>
         </div>
 
-        <div>
+        <div className="h-full flex flex-col justify-center">
           {
             categories.map(items => {
-              const {_id, category} = items;
-              const categoryProducts = products.filter((product) => product.category === category);
+              const { _id, category } = items;
 
-              return <Link key={_id} className="dropdown dropdown-hover dropdown-right w-full border">
+              return <button
+                onClick={() => handleComponent(category)}
+                key={_id}
+                className="dropdown dropdown-hover dropdown-right w-full border">
                 <label tabIndex={0}>
                   <div className="flex gap-2 p-4 hover:text-sky-400 ">
                     <FaRegStar className="mt-2 text-xl ml-3"></FaRegStar> <h3 className=" text-xl ">{category}</h3>
                   </div>
                 </label>
-                <ul tabIndex={0} className="dropdown-content flex flex-col z-[1] menu p-2 shadow bg-base-100  w-52">
-                  {
-                    categoryProducts.map(products => {
-                      return <li key={products._id}>
-                        <Link to={`/product-details/${products._id}`}>{products.name}</Link>
-                      </li>
-                    })
-                  }
-                </ul>
-              </Link>
+              </button>
             })
           }
         </div>
       </div>
 
-      <div className="w-full ">
+      <div div className={!selected ? "w-full mx-4" : 'hidden'}>
         <div className="flex justify-center">
           <div className="carousel w-11/12  h-[35rem]">
             <div id="slide1" className="carousel-item relative w-full">
@@ -144,15 +141,24 @@ const Banner = ({ categories, products }) => {
                 <a href="#slide1" className="btn btn-circle">
                   ❯
                 </a>
-
-
-
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+
+
+      <div className={selected ? "w-full mx-4" : 'hidden'}>
+        <div className="grid grid-cols-3 gap-4">
+          {
+            selectedProducts.map(products => {
+              console.log(products.name);
+              return <ProductCard option={products} />
+            })
+          }
+        </div>
+      </div>
+    </div >
   );
 };
 

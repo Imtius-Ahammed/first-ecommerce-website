@@ -13,8 +13,6 @@ const FeaturedItems = ({ option }) => {
         setFiltered(true)
     }
 
-    console.log(filteredProducts);
-
     return (
         <div className="max-w-6xl mx-auto my-20 relative">
             <h1 className='text-center text-4xl font-semibold my-6'>Featured Items</h1>
