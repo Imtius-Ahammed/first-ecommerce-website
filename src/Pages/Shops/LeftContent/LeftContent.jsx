@@ -1,6 +1,5 @@
 import React from 'react';
 import Categories from './Categories';
-import ProductTags from './ProductTags';
 import TopRated from './TopRated';
 
 const LeftContent = ({categories, products, filteredProducts}) => {
