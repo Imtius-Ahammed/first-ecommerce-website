@@ -9,7 +9,7 @@ const Details = ({handleShowImageBtn, productDetails, showImage, hideImage}) => 
 
     return (
         <div className='flex lg:flex-row flex-col justify-center gap-6'>
-            <div className='lg:w-2/4 lg:px-0 px-3  w-full flex flex-col-reverse lg:flex-row gap-2'>
+            <div className='lg:w-2/4 lg:px-0 px-3  w-full flex flex-col-reverse items-center justify-center lg:flex-row gap-2'>
                 <div className='w-full flex lg:flex-col flex-row flex-wrap my-6 lg:w-2/5 '>
                     {
                         sample_img.slice(0, 3).map((img, index) => {
