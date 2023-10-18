@@ -18,7 +18,7 @@ const Shops = () => {
         const items = products.filter(product => product.category === category);
         setSelectedProducts(items)
         setSelected(true)
-        if(selectedProducts.length < 9){
+        if (selectedProducts.length < 9) {
             setShowBtn(false)
         }
     }
@@ -26,7 +26,11 @@ const Shops = () => {
     return (
         <div className='flex flex-col lg:flex-row justify-between gap-6 w-full lg:w-9/12 mx-auto my-12 lg:px-0 px-2'>
             <div className='w-full lg:w-1/4'>
-                <LeftContent filteredProducts={filteredProducts} categories={categories}></LeftContent>
+                <LeftContent
+                    products={products}
+                    filteredProducts={filteredProducts}
+                    categories={categories}>
+                </LeftContent>
             </div>
             <div className='w-full lg:w-3/4'>
                 <RightContent
