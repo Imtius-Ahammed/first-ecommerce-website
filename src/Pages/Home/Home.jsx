@@ -14,16 +14,34 @@ const Home = () => {
 
     const [categories] = useCategories();
     const [products] = useProducts();
+    const [selected, setSelected] = useState(false);
+    const [selectedProducts, setSelectedProducts] = useState(products);
 
     const newArrivals = products.filter(product => product.option === 'new arrivals');
 
     const featuredItems = products.filter(product => product.option === 'featured items');
 
+    const handleComponent = (category) => {
+        const categoryProducts = products.filter((product) => product.category === category);
+        setSelectedProducts(categoryProducts)
+        setSelected(true);
+    }
+
     return (
         <>
-            <Banner categories={categories} products={products}></Banner>
+            <Banner
+                categories={categories}
+                selectedProducts={selectedProducts}
+                selected={selected}
+                handleComponent={handleComponent}>
+            </Banner>
 
-            <Trendings categories={categories} products={products}></Trendings>
+            <Trendings
+                categories={categories}
+                selectedProducts={selectedProducts}
+                selected={selected}
+                handleComponent={handleComponent}>
+            </Trendings>
 
             <NewArrivals option={newArrivals} />
 

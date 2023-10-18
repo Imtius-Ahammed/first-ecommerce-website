@@ -3,19 +3,10 @@ import {
   FaRegStar,
 } from "react-icons/fa6";
 
-import React, { useState } from "react";
+import React from "react";
 import ProductCard from "../../../Components/ProductCard/ProductCard";
 
-const Banner = ({ categories, products }) => {
-
-  const [selected, setSelected] = useState(false);
-  const [selectedProducts, setSelectedProducts] = useState(products);
-
-  const handleComponent = (category) => {
-    const categoryProducts = products.filter((product) => product.category === category);
-    setSelectedProducts(categoryProducts)
-    setSelected(true);
-  }
+const Banner = ({ categories, selectedProducts, selected, handleComponent }) => {
 
   return (
     <div className="container mx-auto flex gap-4 lg:w-9/12 max-h-full">
@@ -147,12 +138,10 @@ const Banner = ({ categories, products }) => {
         </div>
       </div>
 
-
       <div className={selected ? "w-full mx-4" : 'hidden'}>
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
           {
             selectedProducts.map(products => {
-              console.log(products.name);
               return <ProductCard option={products} />
             })
           }
