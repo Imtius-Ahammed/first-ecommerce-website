@@ -3,6 +3,7 @@ import logo from "../../Assets/Img/team logo.jpg";
 import { Link } from "react-router-dom";
 import YouTubeVideo from '../Shared/YouTubeVideo/YouTubeVideo';
 import GetInTouch from '../Shared/GetInTouch/GetInTouch';
+import { Helmet } from 'react-helmet-async';
 
 const AboutUs = () => {
 
@@ -10,6 +11,9 @@ const AboutUs = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>Romi - About Us</title>
+            </Helmet>
             <div className='px-4 py-4 lg:py-10'>
                 <div className='flex flex-col items-center gap-3'>
                     <h1 className='text-4xl font-semibold'>About Us</h1>

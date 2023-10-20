@@ -6,6 +6,7 @@ import FrequentlyBought from './FrequentlyBought/FrequentlyBought';
 import DetailsBtn from './DetailsBtn/DetailsBtn';
 import Details from './Details/Details';
 import useProducts from '../../Hooks/useProducts';
+import { Helmet } from 'react-helmet-async';
 
 
 const ProductDetails = () => {
@@ -13,10 +14,10 @@ const ProductDetails = () => {
     const [btn, setHandleBtn] = useState('Descriptions');
     const [showImage, setShowImage] = useState(null);
     const [hideImage, setHideImage] = useState(false);
-    
-    const {products} = useProducts();
-    const relatedProducts=(category) => products.filter(product=>{
-        product.category=== category;
+
+    const { products } = useProducts();
+    const relatedProducts = (category) => products.filter(product => {
+        product.category === category;
 
     })
     const handleBtn = (componentName) => {
@@ -30,6 +31,9 @@ const ProductDetails = () => {
 
     return (
         <div className='mx-auto w-full lg:w-9/12 '>
+            <Helmet>
+                <title>Romi - Product Details</title>
+            </Helmet>
             <Details
                 handleShowImageBtn={handleShowImageBtn}
                 showImage={showImage}

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Banner from './Banner/Banner';
 import FeaturedItems from './FeaturedItems/FeaturedItems';
 import NewArrivals from './NewArrivals/NewArrivals';
@@ -9,6 +9,7 @@ import LatestNews from './LatestNews/LatestNews';
 import GetInTouch from '../Shared/GetInTouch/GetInTouch';
 import useCategories from '../../Hooks/useCategories';
 import useProducts from '../../Hooks/useProducts';
+import { Helmet } from 'react-helmet-async';
 
 const Home = () => {
 
@@ -29,6 +30,9 @@ const Home = () => {
 
     return (
         <>
+            <Helmet>
+                <title>Romi - Home</title>
+            </Helmet>
             <Banner
                 categories={categories}
                 selectedProducts={selectedProducts}
