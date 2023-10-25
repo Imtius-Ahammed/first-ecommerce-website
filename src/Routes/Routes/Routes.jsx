@@ -9,12 +9,13 @@ import Shops from "../../Pages/Shops/Shops";
 import ProductDetails from "../../Pages/ProductDetails/ProductDetails";
 import UserDashboardLayout from "../../Layout/UserDashboardLayout";
 import UserDashboard from "../../Pages/UserDashboard/UserDashboard";
+import Orders from "../../Pages/UserDashboard/Orders/Orders";
 
 export const router = createBrowserRouter([
     {
-        path:'/',
+        path: '/',
         element: <Main></Main>,
-        
+
         children: [
             {
                 path: '/',
@@ -26,7 +27,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/product-details/:id',
-                loader: ({params}) => fetch(`http://localhost:5000/products/${params.id}`),
+                loader: ({ params }) => fetch(`http://localhost:5000/products/${params.id}`),
                 element: <ProductDetails></ProductDetails>
             },
             {
@@ -44,18 +45,22 @@ export const router = createBrowserRouter([
             {
                 path: '/contact-us',
                 element: <Contact></Contact>
+            },
+            {
+                path: '/dashboard',
+                element: <UserDashboardLayout />,
+                children: [
+                    {
+                        path: '/dashboard',
+                        element: <UserDashboard />
+                    },
+                    {
+                        path: '/dashboard/orders',
+                        element: <Orders />
+                    },
+                ]
             }
         ]
 
-    },
-    {
-        path: '/dashboard',
-        element: <UserDashboardLayout />,
-        children: [
-            {
-                path: '/dashboard',
-                element: <UserDashboard />
-            }
-        ]
     }
 ])
