@@ -10,6 +10,8 @@ import ProductDetails from "../../Pages/ProductDetails/ProductDetails";
 import UserDashboardLayout from "../../Layout/UserDashboardLayout";
 import UserDashboard from "../../Pages/UserDashboard/UserDashboard";
 import Orders from "../../Pages/UserDashboard/Orders/Orders";
+import Dashboard from "../../Pages/UserDashboard/Dashboard/Dashboard";
+import AccountDetails from "../../Pages/UserDashboard/AccountDetails/AccountDetails";
 
 export const router = createBrowserRouter([
     {
@@ -54,9 +56,19 @@ export const router = createBrowserRouter([
                         path: '/dashboard',
                         element: <UserDashboard />
                     },
+                    
+                    {
+                        path:'/dashboard/dashboard',
+                        element:<Dashboard></Dashboard>
+
+                    },
                     {
                         path: '/dashboard/orders',
                         element: <Orders />
+                    },
+                    {
+                        path: '/dashboard/accountDetails',
+                        element: <AccountDetails></AccountDetails>
                     },
                 ]
             }

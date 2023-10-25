@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthProvider';
 import { RiDashboard3Line } from '@react-icons/all-files/ri/RiDashboard3Line';
 import { FiShoppingCart } from '@react-icons/all-files/fi/FiShoppingCart';
 import { MdAccountCircle } from '@react-icons/all-files/md/MdAccountCircle';
-import { BsCardChecklist } from '@react-icons/all-files/bs/BsCardChecklist';
+import './UseNavbar.css';
 
 const UserNavbar = () => {
 
@@ -33,36 +33,29 @@ const UserNavbar = () => {
                 </div>
             </div>
             <li className='border-y-2 border-slate-30 p-2 w-full font-semibold'>
-                <Link
-                    className='flex items-center justify-between hover:bg-white hover:text-orange-600'
-                    to='/dashboard'>
+                <NavLink  className={({ isActive }) => (isActive ? "active-link flex items-center justify-between focus:bg-none  hover:text-orange-600" : " flex items-center justify-between hover:bg-white hover:text-orange-600")}
+                   
+                    to='/dashboard/dashboard'>
                     Dashboard
                     <RiDashboard3Line className='text-xl text-orange-300 font-bold' />
-                </Link>
+                </NavLink>
             </li>
             <li className='border-y-2 border-slate-30 p-2 w-full font-semibold'>
-                <Link
-                    className='flex items-center justify-between hover:bg-white hover:text-orange-600'
+                <NavLink
+                    className={({ isActive }) => (isActive ? "active-link flex items-center justify-between focus:bg-none  hover:text-orange-600" : " flex items-center justify-between hover:bg-white hover:text-orange-600")}
                     to='/dashboard/orders'>
                     Orders
                     <FiShoppingCart className='text-xl text-orange-300 font-bold' />
-                </Link>
+                </NavLink>
             </li>
             <li className='border-y-2 border-slate-30 p-2 w-full font-semibold'>
-                <Link
-                    className='flex items-center justify-between hover:bg-white hover:text-orange-600'
-                    to='/dashboard'>
+                <NavLink
+                   className={({ isActive }) => (isActive ? "active-link flex items-center justify-between focus:bg-none  hover:text-orange-600" : " flex items-center justify-between hover:bg-white hover:text-orange-600")}
+                    to='/dashboard/accountDetails'>
                     Account Details
                     <MdAccountCircle className='text-xl text-orange-300 font-bold' />
-                </Link>
-            </li>
-            <li className='border-y-2 border-slate-30 p-2 w-full font-semibold'>
-                <Link
-                    className='flex items-center justify-between hover:bg-white hover:text-orange-600'
-                    to='/dashboard'>
-                    Wishlist
-                    <BsCardChecklist className='text-xl text-orange-300 font-bold' />
-                </Link>
+                </NavLink>
+               
             </li>
         </div>
     );
