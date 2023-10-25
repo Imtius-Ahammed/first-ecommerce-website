@@ -1,16 +1,14 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../../Layout/Main";
-
-import Login from "../../Pages/Login/Login";
 import Home from "../../Pages/Home/Home";
 import AboutUs from "../../Pages/AboutUs/AboutUs";
 import BlogDetails from "../../Pages/Blogs/BlogDetails/BlogDetails";
 import Contact from "../../Pages/Contact/Contact";
 import Blogs from "../../Pages/Blogs/Blogs";
 import Shops from "../../Pages/Shops/Shops";
-import Section_01 from "../../Pages/Shared/Navbar/Section_01/Section_01";
 import ProductDetails from "../../Pages/ProductDetails/ProductDetails";
-import Descriptions from "../../Pages/ProductDetails/Descriptions/Descriptions";
+import UserDashboardLayout from "../../Layout/UserDashboardLayout";
+import UserDashboard from "../../Pages/UserDashboard/UserDashboard";
 
 export const router = createBrowserRouter([
     {
@@ -46,14 +44,18 @@ export const router = createBrowserRouter([
             {
                 path: '/contact-us',
                 element: <Contact></Contact>
-            },
-        
-            // {
-            //     path: '/login',
-            //     element:<Section_01></Section_01>
-
-            // }
+            }
         ]
 
+    },
+    {
+        path: '/dashboard',
+        element: <UserDashboardLayout />,
+        children: [
+            {
+                path: '/dashboard',
+                element: <UserDashboard />
+            }
+        ]
     }
 ])

@@ -80,9 +80,10 @@ const Section_01 = () => {
                     {
                         user?.email ?
                             <div className='px-3 flex items-center gap-3'>
-                                <h1 className='text-black font-semibold'>{user?.displayName}</h1>
+                                <Link to='/dashboard' className='text-white bg-black px-3 py-1 text-sm rounded hover:bg-[#4e4d4d] font-semibold'>Dashboard</Link>
                                 <button
-                                    className='px-3 py-1 font-semibold text-sm bg-black text-white rounded'
+                                    className='px-3 py-1 font-semibold text-sm
+                                    hover:bg-[#4e4d4d] bg-black text-white rounded'
                                     onClick={handleLogOut}>
                                     Log Out
                                 </button>
