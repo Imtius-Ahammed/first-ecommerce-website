@@ -1,11 +1,49 @@
-import React from 'react';
-import { FaCartPlus, FaStar, FaRegStar } from 'react-icons/fa';
+import React, { useContext } from 'react';
+import { FaCartPlus, FaStar } from 'react-icons/fa';
 import { BiLinkExternal, BiHeart } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
+import useCart from '../../Hooks/useCart';
+import { AuthContext } from '../../Pages/Contexts/AuthProvider';
+import Swal from 'sweetalert2';
 
 const ProductCard = ({ option }) => {
 
     const { _id, image, rating, name, price } = option;
+    const [, refetch] = useCart();
+    const {user} = useContext(AuthContext);
+
+    const handleCart = (_id) => {
+        if (user && user?.email) {
+            const cartData = { option, email: user?.email };
+            fetch('http://localhost:5000/carts', {
+                method: "POST",
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(cartData)
+            })
+                .then(res => res.json())
+                .then(data => {
+                    refetch();
+                    if (data && user?.email) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Item Added',
+                            showConfirmButton: false,
+                            timer: 1500
+                        })
+                    }
+                })
+        }
+        else {
+            Swal.fire({
+                icon: 'error',
+                title: 'Login First...',
+                text: "You are not logged in!!!"
+            })
+        }
+    }
+
 
     return (
         <div key={_id} className={`py-2 hover:scale-105 duration-500 relative`}>
@@ -19,7 +57,7 @@ const ProductCard = ({ option }) => {
                 <p className='text-gray-500 font-medium'>{name}</p>
                 <div className='flex items-center justify-between'>
                     <p className='font-bold'>${price}</p>
-                    <button
+                    <button onClick={() => handleCart(_id)}
                         className="text-2xl font-semibold hover:text-emerald-400 mb-3">
                         <FaCartPlus size={22} className='' />
                     </button>

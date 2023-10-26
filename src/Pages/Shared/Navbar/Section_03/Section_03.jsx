@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { BiSupport } from '@react-icons/all-files/bi/BiSupport';
-import { MdArrowDropDown } from '@react-icons/all-files/md/MdArrowDropDown';
 
 const Section_03 = () => {
     return (
@@ -12,20 +11,6 @@ const Section_03 = () => {
                         <div>
                             <Link className="hover:text-orange-500 hover:border-b-2 hover:bg-white border-orange-500 font-medium text-md">Home</Link>
                         </div>
-                        {/* <div className="dropdown dropdown-hover dropdown-bottom">
-                            <div className='flex items-center'>
-                                <h3 className="hover:text-orange-500 hover:border-b-2 hover:bg-white border-orange-500 font-medium text-md">Shop</h3>
-                                <MdArrowDropDown className='text-3xl' />
-                            </div>
-                            <ul tabIndex={0} className="dropdown-content z-10 menu p-2 w-64 bg-white rounded-xl border-t-4 border-orange-500">
-                                <li>
-                                    <Link className='hover:bg-white hover:text-orange-500 font-medium'>Item 1</Link>
-                                </li>
-                                <li>
-                                    <Link className='hover:bg-white hover:text-orange-500 font-medium'>Item 2</Link>
-                                </li>
-                            </ul>
-                        </div> */}
                         <div>
                             <Link to='/shops' className="hover:text-orange-500 hover:border-b-2 hover:bg-white border-orange-500 font-medium text-md">Shops</Link>
                         </div>

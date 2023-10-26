@@ -4,12 +4,15 @@ import { Link } from 'react-router-dom';
 import { FaStar } from 'react-icons/fa6';
 import { AuthContext } from '../../Contexts/AuthProvider';
 import Swal from 'sweetalert2';
+import useCart from '../../../Hooks/useCart';
 
 const Details = ({ handleShowImageBtn, productDetails, showImage, hideImage }) => {
 
     const { category, description, image, sample_img, name, option, tag, price, rating, _id } = productDetails;
 
     const { user } = useContext(AuthContext);
+
+    const [,refetch] = useCart();
 
     const handleCart = (_id) => {
         if (user && user?.email) {
@@ -23,6 +26,7 @@ const Details = ({ handleShowImageBtn, productDetails, showImage, hideImage }) =
             })
                 .then(res => res.json())
                 .then(data => {
+                    refetch();
                     if (data && user?.email) {
                         Swal.fire({
                             icon: 'success',
