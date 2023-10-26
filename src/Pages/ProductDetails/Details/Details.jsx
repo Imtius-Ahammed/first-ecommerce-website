@@ -1,11 +1,46 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import WishList_Compare from '../WishList_Compare/WishList_Compare';
 import { Link } from 'react-router-dom';
 import { FaStar } from 'react-icons/fa6';
+import { AuthContext } from '../../Contexts/AuthProvider';
+import Swal from 'sweetalert2';
 
-const Details = ({handleShowImageBtn, productDetails, showImage, hideImage}) => {
+const Details = ({ handleShowImageBtn, productDetails, showImage, hideImage }) => {
 
     const { category, description, image, sample_img, name, option, tag, price, rating, _id } = productDetails;
+
+    const { user } = useContext(AuthContext);
+
+    const handleCart = (_id) => {
+        if (user && user?.email) {
+            const cartData = {productDetails, email: user?.email};
+            fetch('http://localhost:5000/carts', {
+                method: "POST",
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(cartData)
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data && user?.email) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Item Added',
+                            showConfirmButton: false,
+                            timer: 1500
+                        })
+                    }
+                })
+        }
+        else {
+            Swal.fire({
+                icon: 'error',
+                title: 'Login First...',
+                text: "You are not logged in!!!"
+            })
+        }
+    }
 
     return (
         <div className='flex lg:flex-row flex-col justify-center gap-6'>
@@ -40,7 +75,7 @@ const Details = ({handleShowImageBtn, productDetails, showImage, hideImage}) => 
                     {description}
                 </p>
                 <p className='text-green-500 mt-3 font-medium mb-4'>In Stock</p>
-                <button className='btn btn-neutral mb-8' type="submit">Add To Cart</button>
+                <button onClick={() => handleCart(_id)} className='btn btn-neutral mb-8' type="submit">Add To Cart</button>
 
                 <WishList_Compare />
                 <hr />
