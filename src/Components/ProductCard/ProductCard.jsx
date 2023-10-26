@@ -14,7 +14,7 @@ const ProductCard = ({ option }) => {
 
     const handleCart = (_id) => {
         if (user && user?.email) {
-            const cartData = { option, email: user?.email };
+            const cartData = { productsDetails: option, email: user?.email };
             fetch('http://localhost:5000/carts', {
                 method: "POST",
                 headers: {
