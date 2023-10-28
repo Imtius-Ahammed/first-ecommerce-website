@@ -12,63 +12,76 @@ import UserDashboard from "../../Pages/UserDashboard/UserDashboard";
 import Orders from "../../Pages/UserDashboard/Orders/Orders";
 import Dashboard from "../../Pages/UserDashboard/Dashboard/Dashboard";
 import AccountDetails from "../../Pages/UserDashboard/AccountDetails/AccountDetails";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 export const router = createBrowserRouter([
     {
         path: '/',
-        element: <Main></Main>,
+        element: <Main />,
 
         children: [
             {
                 path: '/',
-                element: <Home></Home>
+                element: <Home />
             },
             {
                 path: '/shops',
-                element: <Shops></Shops>
+                element: <Shops />
             },
             {
                 path: '/product-details/:id',
                 loader: ({ params }) => fetch(`http://localhost:5000/products/${params.id}`),
-                element: <ProductDetails></ProductDetails>
+                element: <PrivateRoute>
+                    <ProductDetails />
+                </PrivateRoute>
             },
             {
                 path: '/about-us',
-                element: <AboutUs></AboutUs>
+                element: <AboutUs />
             },
             {
                 path: '/blogs',
-                element: <Blogs></Blogs>
+                element: <Blogs />
             },
             {
                 path: '/blog-details',
-                element: <BlogDetails></BlogDetails>
+                element: <BlogDetails />
             },
             {
                 path: '/contact-us',
-                element: <Contact></Contact>
+                element: <Contact />
             },
             {
                 path: '/dashboard',
-                element: <UserDashboardLayout />,
+                element: <PrivateRoute>
+                    <UserDashboardLayout />
+                </PrivateRoute>,
                 children: [
                     {
                         path: '/dashboard',
-                        element: <UserDashboard />
+                        element: <PrivateRoute>
+                            <UserDashboard />
+                        </PrivateRoute>
                     },
-                    
+
                     {
-                        path:'/dashboard/dashboard',
-                        element:<Dashboard></Dashboard>
+                        path: '/dashboard/dashboard',
+                        element: <PrivateRoute>
+                            <Dashboard />
+                        </PrivateRoute>
 
                     },
                     {
                         path: '/dashboard/orders',
-                        element: <Orders />
+                        element: <PrivateRoute>
+                            <Orders />
+                        </PrivateRoute>
                     },
                     {
                         path: '/dashboard/accountDetails',
-                        element: <AccountDetails></AccountDetails>
+                        element: <PrivateRoute>
+                            <AccountDetails />
+                        </PrivateRoute>
                     },
                 ]
             }
