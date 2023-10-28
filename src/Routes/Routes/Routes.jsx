@@ -13,6 +13,8 @@ import Orders from "../../Pages/UserDashboard/Orders/Orders";
 import Dashboard from "../../Pages/UserDashboard/Dashboard/Dashboard";
 import AccountDetails from "../../Pages/UserDashboard/AccountDetails/AccountDetails";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import Login from "../../Pages/Login/Login";
+import Register from "../../Pages/Login/Register";
 
 export const router = createBrowserRouter([
     {
@@ -52,6 +54,15 @@ export const router = createBrowserRouter([
                 element: <Contact />
             },
             {
+                path: '/login',
+                element: <Login />
+            },
+            {
+                path: '/register',
+                element: <Register />
+            },
+            // ----- User Dashboard Routes Starts ----- //
+            {
                 path: '/dashboard',
                 element: <PrivateRoute>
                     <UserDashboardLayout />
@@ -85,6 +96,7 @@ export const router = createBrowserRouter([
                     },
                 ]
             }
+            // ----- User Dashboard Routes Ends ----- //
         ]
 
     }

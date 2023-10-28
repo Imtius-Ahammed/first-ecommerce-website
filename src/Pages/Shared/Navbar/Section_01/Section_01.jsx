@@ -8,29 +8,29 @@ import { AuthContext } from '../../../Contexts/AuthProvider';
 const Section_01 = () => {
 
     const { user, logOut } = useContext(AuthContext);
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    // const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-    const [isSignInModalOpen, setSignInModalOpen] = useState(false);
-    const [isRegisterModalOpen, setRegisterModalOpen] = useState(false);
+    // const [isSignInModalOpen, setSignInModalOpen] = useState(false);
+    // const [isRegisterModalOpen, setRegisterModalOpen] = useState(false);
 
-    const openSignInModal = () => {
-        setSignInModalOpen(true);
-        closeRegisterModal();
-        setIsLoggedIn(true)
-    };
+    // const openSignInModal = () => {
+    //     setSignInModalOpen(true);
+    //     closeRegisterModal();
+    //     setIsLoggedIn(true)
+    // };
 
-    const closeSignInModal = () => {
-        setSignInModalOpen(false);
-    };
+    // const closeSignInModal = () => {
+    //     setSignInModalOpen(false);
+    // };
 
-    const openRegisterModal = () => {
-        setRegisterModalOpen(true);
-        closeSignInModal();
-    };
+    // const openRegisterModal = () => {
+    //     setRegisterModalOpen(true);
+    //     closeSignInModal();
+    // };
 
-    const closeRegisterModal = () => {
-        setRegisterModalOpen(false);
-    };
+    // const closeRegisterModal = () => {
+    //     setRegisterModalOpen(false);
+    // };
 
     const handleLogOut = () => {
         logOut()
@@ -89,29 +89,32 @@ const Section_01 = () => {
                                 </button>
                             </div>
                             :
-                            <div>
-                                <div className="px-3">
-                                    <button onClick={openSignInModal}>Sign In / Register</button>
-                                </div>
-                                {
-                                    isLoggedIn &&
-                                    <div>
-                                        <dialog id="my_modal_3" className="modal" open={isSignInModalOpen}>
-                                            <div className="modal-box">
-                                                <button onClick={closeSignInModal} className='btn btn-sm btn-circle btn-ghost absolute right-2 top-2'>X</button>
-                                                <Login></Login>
-                                                <button onClick={openRegisterModal} className='flex items-center w-full justify-center mt-2'>Don't have an account<span className='font-bold ml-2 underline'>Register</span></button>
-                                            </div>
-                                        </dialog>
+                            // <div>
+                            //     <div className="px-3">
+                            //         <button onClick={openSignInModal}>Sign In / Register</button>
+                            //     </div>
+                            //     {
+                            //         isLoggedIn &&
+                            //         <div>
+                            //             <dialog id="my_modal_3" className="modal" open={isSignInModalOpen}>
+                            //                 <div className="modal-box">
+                            //                     <button onClick={closeSignInModal} className='btn btn-sm btn-circle btn-ghost absolute right-2 top-2'>X</button>
+                            //                     <Login></Login>
+                            //                     <button onClick={openRegisterModal} className='flex items-center w-full justify-center mt-2'>Don't have an account<span className='font-bold ml-2 underline'>Register</span></button>
+                            //                 </div>
+                            //             </dialog>
 
-                                        <dialog id="register_modal" className="modal" open={isRegisterModalOpen}>
-                                            <div className="modal-box">
-                                                <button onClick={closeRegisterModal} className='btn btn-sm btn-circle btn-ghost absolute right-2 top-2'>X</button>
-                                                <Register></Register>
-                                            </div>
-                                        </dialog>
-                                    </div>
-                                }
+                            //             <dialog id="register_modal" className="modal" open={isRegisterModalOpen}>
+                            //                 <div className="modal-box">
+                            //                     <button onClick={closeRegisterModal} className='btn btn-sm btn-circle btn-ghost absolute right-2 top-2'>X</button>
+                            //                     <Register></Register>
+                            //                 </div>
+                            //             </dialog>
+                            //         </div>
+                            //     }
+                            // </div>
+                            <div className="px-3">
+                                <Link to='/login'>Sign In / Register</Link>
                             </div>
                     }
                 </div>

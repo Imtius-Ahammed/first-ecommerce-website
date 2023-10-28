@@ -24,10 +24,10 @@ const UserNavbar = () => {
     return (
         <div className='bg-slate-50 py-10'>
             <div className="hero min-h-full">
-                <div className="hero-content flex-col lg:flex-row mb-6">
-                    <img src={user?.photoURL} className="max-w-xs rounded-full shadow-2xl" />
+                <div className="hero-content flex-col items-center lg:flex-row mb-6">
+                    <img src={user?.photoURL} className="w-20 rounded-full shadow-2xl" />
                     <div>
-                        <h1 className="text-2xl font-bold">{user?.displayName}</h1>
+                        <h1 className="text-xl font-bold">{user?.displayName}</h1>
                         <button
                             className='py-1 mt-2 font-semibold text-sm rounded'
                             onClick={handleLogOut}>
