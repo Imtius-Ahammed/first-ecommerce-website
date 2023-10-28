@@ -4,6 +4,7 @@ import RightContent from './RightContent/RightContent';
 import useCategories from '../../Hooks/useCategories';
 import useProducts from '../../Hooks/useProducts';
 import { Helmet } from 'react-helmet-async';
+import Loader from '../Shared/Loader/Loader';
 
 const Shops = () => {
 
@@ -12,8 +13,8 @@ const Shops = () => {
 
     const [selectedProducts, setSelectedProducts] = useState([]);
     const [selected, setSelected] = useState(false);
-
     const [showBtn, setShowBtn] = useState(true);
+    const [,isLoading] = useProducts();
 
     const filteredProducts = (category) => {
         const items = products.filter(product => product.category === category);
@@ -22,6 +23,10 @@ const Shops = () => {
         if (selectedProducts.length < 9) {
             setShowBtn(false)
         }
+    }
+
+    if (isLoading) {
+        return <Loader />
     }
 
     return (
