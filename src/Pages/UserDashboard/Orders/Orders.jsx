@@ -22,8 +22,8 @@ const Orders = () => {
                     })
                         .then(res => res.json())
                         .then(data => {
-                            if (data.deletedCount > 0) {
-                                refetch()
+                            if (data) {
+                                refetch();
                                 Swal.fire(
                                     'Deleted!',
                                     'Product has been deleted.',
@@ -57,7 +57,7 @@ const Orders = () => {
                                     </h1>
                                     <p className='w-full font-semibold lg:w-1/6 text-lg rounded text-orange-600 bg-slate-50 p-1'>${price}</p>
                                     <button className='w-full lg:w-1/6 p-2 bg-black text-white hover:bg-[#4f4f4f] text-sm font-bold rounded'>Checkout</button>
-                                    <button onClick={() => handleDelete(_id)} className='w-full lg:w-1/6 p-2 bg-black hover:bg-[#4f4f4f] text-white text-sm font-bold rounded'>Delete</button>
+                                    <button onClick={() => handleDelete(item._id)} className='w-full lg:w-1/6 p-2 bg-black hover:bg-[#4f4f4f] text-white text-sm font-bold rounded'>Delete</button>
                                 </div>
                             })
                         }
