@@ -10,11 +10,12 @@ import GetInTouch from '../Shared/GetInTouch/GetInTouch';
 import useCategories from '../../Hooks/useCategories';
 import useProducts from '../../Hooks/useProducts';
 import { Helmet } from 'react-helmet-async';
+import Loader from '../Shared/Loader/Loader';
 
 const Home = () => {
 
     const [categories] = useCategories();
-    const [products] = useProducts();
+    const [products, isLoading] = useProducts();
     const [selected, setSelected] = useState(false);
     const [selectedProducts, setSelectedProducts] = useState(products);
 
@@ -26,6 +27,10 @@ const Home = () => {
         const categoryProducts = products.filter((product) => product.category === category);
         setSelectedProducts(categoryProducts)
         setSelected(true);
+    }
+
+    if(isLoading){
+        return <Loader />
     }
 
     return (
