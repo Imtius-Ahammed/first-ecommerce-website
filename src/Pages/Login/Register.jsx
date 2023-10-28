@@ -2,12 +2,13 @@ import React, { useContext } from 'react';
 import { AuthContext } from '../Contexts/AuthProvider';
 import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import Loader from '../Shared/Loader/Loader';
 
 const Register = () => {
 
   const { createUser, updateUser } = useContext(AuthContext);
   const navigate = useNavigate();
-  const {logOut} = useContext(AuthContext);
+  const { logOut, loading } = useContext(AuthContext);
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -46,6 +47,11 @@ const Register = () => {
         console.log(e);
       })
   }
+
+  if (loading) {
+    return <Loader />
+  }
+
   return (
     <div className='w-2/3 lg:w-1/3 mx-auto mt-2 shadow-2xl p-4 lg:p-10 shadow-emerald-200'>
       <form onSubmit={handleSubmit} method="dialog" className='p-4 lg:px-12 flex flex-col gap-4'>

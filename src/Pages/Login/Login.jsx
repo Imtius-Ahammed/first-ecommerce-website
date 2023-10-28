@@ -6,10 +6,11 @@ import { FcGoogle } from '@react-icons/all-files/fc/FcGoogle';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import Loader from '../Shared/Loader/Loader';
 
 const Login = () => {
   const googleProvider = new GoogleAuthProvider();
-  const { logIn, signInWithGoogle } = useContext(AuthContext);
+  const { logIn, signInWithGoogle, loading } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -49,6 +50,10 @@ const Login = () => {
       .catch(e => {
         console.log(e);
       })
+  }
+
+  if(loading){
+    return <Loader />
   }
 
   return (
