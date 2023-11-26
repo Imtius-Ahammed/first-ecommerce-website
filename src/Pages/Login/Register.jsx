@@ -3,12 +3,14 @@ import { AuthContext } from '../Contexts/AuthProvider';
 import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import Loader from '../Shared/Loader/Loader';
+import useAxiosSecure from '../../Hooks/useAxiosSecure';
 
 const Register = () => {
 
   const { createUser, updateUser } = useContext(AuthContext);
   const navigate = useNavigate();
   const { logOut, loading } = useContext(AuthContext);
+  const [axiosSecure] = useAxiosSecure();
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -26,21 +28,27 @@ const Register = () => {
           photoURL: url
         };
         updateUser(profile)
-          .then(() => { })
-          .catch(e => {
-            console.log(e);
-          })
-        console.log(user);
-        form.reset();
-        Swal.fire({
-          icon: 'success',
-          title: 'Sign Up Successful',
-          showConfirmButton: false,
-          timer: 1000
-        })
-        logOut()
           .then(() => {
-            navigate('/login')
+            const userInfo = {
+              name: user.displayName,
+              email: user.email
+            }
+            axiosSecure.post('/users', userInfo)
+              .then(res => {
+                if (res.data.insertedId) {
+                  form.reset();
+                  Swal.fire({
+                    icon: 'success',
+                    title: 'Sign Up Successful',
+                    showConfirmButton: false,
+                    timer: 1000
+                  })
+                  logOut()
+                    .then(() => {
+                      navigate('/login')
+                    })
+                }
+              })
           })
       })
       .catch((e) => {
