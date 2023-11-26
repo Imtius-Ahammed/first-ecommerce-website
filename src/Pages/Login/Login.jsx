@@ -1,32 +1,15 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../Contexts/AuthProvider';
-import { useNavigate, useLocation } from 'react-router';
-import { GoogleAuthProvider } from 'firebase/auth';
-import { FcGoogle } from '@react-icons/all-files/fc/FcGoogle';
+import { useNavigate } from 'react-router';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import Loader from '../Shared/Loader/Loader';
+import SocialLogin from './SocialLogin';
 
 const Login = () => {
-  const googleProvider = new GoogleAuthProvider();
-  const { logIn, signInWithGoogle, loading } = useContext(AuthContext);
+  const { logIn, loading } = useContext(AuthContext);
   const navigate = useNavigate();
-  const location = useLocation();
-
-  const from = location.state?.from?.pathname || '/';
-
-  const handleGoogleLogin = () => {
-    signInWithGoogle(googleProvider)
-      .then(res => {
-        const user = res.user;
-        console.log(user);
-        navigate(from, { replace: true });
-      })
-      .catch(e => {
-        console.log(e)
-      })
-  }
 
   const handleLogin = (e) => {
     e.preventDefault()
@@ -85,7 +68,7 @@ const Login = () => {
         <input className="py-2 uppercase text-sm bg-black hover:bg-red-400 text-white font-bold mb-5 w-full" value='login' type="submit" />
 
         <div className="divider">OR</div>
-        <button onClick={handleGoogleLogin} className=' text-3xl flex justify-center' type="submit"> <FcGoogle ></FcGoogle></button>
+        <SocialLogin />
       </form>
       <Link to='/register' className='flex items-center w-full justify-center mt-2'>Don't have an account<span className='font-bold ml-2 underline'>Register</span></Link>
     </div>
