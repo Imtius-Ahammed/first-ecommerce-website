@@ -4,13 +4,24 @@ import { AuthContext } from '../Pages/Contexts/AuthProvider';
 
 const useCart = () => {
 
-    const { user } = useContext(AuthContext);
+    const { user, loading } = useContext(AuthContext);
+    const token = localStorage.getItem('E-Access-Token')
 
     const { refetch, data: cart = [] } = useQuery({
         queryKey: ['carts', user?.email],
+        enabled: !loading,        
         queryFn: async () => {
-            const result = await fetch(`http://localhost:5000/carts?email=${user?.email}`)
-            return result.json()
+            if(user?.email){
+                const result = await fetch(`http://localhost:5000/carts?email=${user?.email}`, {
+                    headers: {
+                        authorization: `bearer ${token}`
+                    }
+                })
+                return result.json()
+            }
+            else{
+                return []
+            }
         }
     })
 

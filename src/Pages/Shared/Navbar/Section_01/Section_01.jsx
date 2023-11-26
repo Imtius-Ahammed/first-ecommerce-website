@@ -34,9 +34,7 @@ const Section_01 = () => {
 
     const handleLogOut = () => {
         logOut()
-            .then(() => {
-                setIsLoggedIn(false)
-            })
+            .then(() => {})
             .catch(e => {
                 console.log(e);
             })
