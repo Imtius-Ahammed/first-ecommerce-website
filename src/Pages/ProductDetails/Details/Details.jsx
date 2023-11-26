@@ -5,6 +5,7 @@ import { FaStar } from 'react-icons/fa6';
 import { AuthContext } from '../../Contexts/AuthProvider';
 import Swal from 'sweetalert2';
 import useCart from '../../../Hooks/useCart';
+import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 
 const Details = ({ handleShowImageBtn, productDetails, showImage, hideImage }) => {
 
@@ -13,21 +14,15 @@ const Details = ({ handleShowImageBtn, productDetails, showImage, hideImage }) =
     const { user } = useContext(AuthContext);
 
     const [,refetch] = useCart();
+    const [axiosSecure] = useAxiosSecure();
 
     const handleCart = (_id) => {
         if (user && user?.email) {
             const cartData = {productDetails, email: user?.email};
-            fetch('http://localhost:5000/carts', {
-                method: "POST",
-                headers: {
-                    'content-type': 'application/json'
-                },
-                body: JSON.stringify(cartData)
-            })
-                .then(res => res.json())
+            axiosSecure.post('/carts', cartData)
                 .then(data => {
                     refetch();
-                    if (data && user?.email) {
+                    if (data.data && user?.email) {
                         Swal.fire({
                             icon: 'success',
                             title: 'Item Added',
@@ -51,7 +46,7 @@ const Details = ({ handleShowImageBtn, productDetails, showImage, hideImage }) =
             <div className='lg:w-2/4 lg:px-0 px-3  w-full flex flex-col-reverse items-center justify-center lg:flex-row gap-2'>
                 <div className='w-full flex lg:flex-col flex-row flex-wrap my-6 lg:w-2/5 '>
                     {
-                        sample_img.slice(0, 3).map((img, index) => {
+                        sample_img?.slice(0, 3).map((img, index) => {
                             return <button key={index} onClick={() => handleShowImageBtn(index)}>
                                 <img className='w-32 mx-auto mb-2' src={img} alt="" />
                             </button>

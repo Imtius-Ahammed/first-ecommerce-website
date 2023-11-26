@@ -5,27 +5,22 @@ import { Link } from 'react-router-dom';
 import useCart from '../../Hooks/useCart';
 import { AuthContext } from '../../Pages/Contexts/AuthProvider';
 import Swal from 'sweetalert2';
+import useAxiosSecure from '../../Hooks/useAxiosSecure';
 
 const ProductCard = ({ option }) => {
 
     const { _id, image, rating, name, price } = option;
     const [, refetch] = useCart();
     const {user} = useContext(AuthContext);
+    const [axiosSecure] = useAxiosSecure();
 
     const handleCart = (_id) => {
         if (user && user?.email) {
             const cartData = { productDetails: option, email: user?.email };
-            fetch('http://localhost:5000/carts', {
-                method: "POST",
-                headers: {
-                    'content-type': 'application/json'
-                },
-                body: JSON.stringify(cartData)
-            })
-                .then(res => res.json())
-                .then(data => {
+            axiosSecure.post('/carts', cartData)
+                .then(res => {
                     refetch();
-                    if (data && user?.email) {
+                    if (res.data && user?.email) {
                         Swal.fire({
                             icon: 'success',
                             title: 'Item Added',

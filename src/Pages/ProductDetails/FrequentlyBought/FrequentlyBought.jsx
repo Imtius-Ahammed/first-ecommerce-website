@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from "react";
+import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 
 const FrequentlyBought = ({ productDetails, relatedProducts }) => {
   const { image, name, price, _id, category } = productDetails;
   const [relatedProduct, setRelatedProduct] = useState({});
+  const [axiosSecure] = useAxiosSecure();
   
   useEffect(() => {
     try {
-      fetch(`http://localhost:5000/similarProduct/${price}`)
-        .then((res) => res.json())
+      axiosSecure.get(`/similarProduct/${price}`)
         .then((data) => {
-          setRelatedProduct(data);
+          setRelatedProduct(data.data);
         });
     } catch (e) {
       console.log(e);

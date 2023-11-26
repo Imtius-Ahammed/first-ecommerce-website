@@ -1,10 +1,12 @@
 import React from 'react';
 import useCart from "../../../Hooks/useCart";
 import Swal from 'sweetalert2';
+import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 
 const Orders = () => {
 
     const [cart, refetch] = useCart();
+    const [axiosSecure] = useAxiosSecure();
 
     const handleDelete = (_id) => {
         try {
@@ -17,12 +19,9 @@ const Orders = () => {
                 confirmButtonText: 'Yes, delete it!'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    fetch(`http://localhost:5000/carts/${_id}`, {
-                        method: 'DELETE'
-                    })
-                        .then(res => res.json())
+                    axiosSecure.delete(`/carts/${_id}`)
                         .then(data => {
-                            if (data) {
+                            if (data.data) {
                                 refetch();
                                 Swal.fire(
                                     'Deleted!',
