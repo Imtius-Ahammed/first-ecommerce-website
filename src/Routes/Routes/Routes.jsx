@@ -8,13 +8,13 @@ import Blogs from "../../Pages/Blogs/Blogs";
 import Shops from "../../Pages/Shops/Shops";
 import ProductDetails from "../../Pages/ProductDetails/ProductDetails";
 import UserDashboardLayout from "../../Layout/UserDashboardLayout";
-import UserDashboard from "../../Pages/UserDashboard/UserDashboard";
-import Orders from "../../Pages/UserDashboard/Orders/Orders";
-import Dashboard from "../../Pages/UserDashboard/Dashboard/Dashboard";
-import AccountDetails from "../../Pages/UserDashboard/AccountDetails/AccountDetails";
+import Orders from "../../Pages/Dashboard/UserDashboard/Orders/Orders";
+import Dashboard from "../../Pages/Dashboard/Dashboard";
+import AccountDetails from "../../Pages/Dashboard/UserDashboard/AccountDetails/AccountDetails";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import Login from "../../Pages/Login/Login";
 import Register from "../../Pages/Login/Register";
+import AllUsers from "../../Pages/Dashboard/AdminDashboard/AllUsers/AllUsers";
 
 export const router = createBrowserRouter([
     {
@@ -70,7 +70,7 @@ export const router = createBrowserRouter([
                     {
                         path: '/dashboard',
                         element: <PrivateRoute>
-                            <UserDashboard />
+                            <Dashboard />
                         </PrivateRoute>
                     },
 
@@ -85,6 +85,12 @@ export const router = createBrowserRouter([
                         path: '/dashboard/orders',
                         element: <PrivateRoute>
                             <Orders />
+                        </PrivateRoute>
+                    },
+                    {
+                        path: '/dashboard/users',
+                        element: <PrivateRoute>
+                            <AllUsers />
                         </PrivateRoute>
                     },
                     {

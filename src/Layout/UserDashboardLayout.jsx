@@ -1,9 +1,13 @@
 import React from 'react';
-import UserNavbar from '../Pages/UserDashboard/UserNavbar/UserNavbar';
+import UserNavbar from '../Pages/Dashboard/UserDashboard/UserNavbar/UserNavbar';
 import { GiHamburgerMenu } from '@react-icons/all-files/gi/GiHamburgerMenu';
 import { Outlet } from 'react-router-dom';
+import AdminNavbar from '../Pages/Dashboard/AdminDashboard/AdminNavbar/AdminNavbar';
 
 const UserDashboardLayout = () => {
+
+    const isAdmin = true;
+
     return (
         <div className="drawer lg:drawer-open w-full lg:w-9/12 mx-auto">
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
@@ -14,7 +18,12 @@ const UserDashboardLayout = () => {
             <div className="drawer-side">
                 <label htmlFor="my-drawer-2" aria-label="close sidebar" className="drawer-overlay"></label>
                 <ul className="menu p-4 w-72 min-h-full">
-                    <UserNavbar />
+                    {
+                        isAdmin ?
+                            <AdminNavbar />
+                            :
+                            <UserNavbar />
+                    }
                 </ul>
             </div>
         </div>

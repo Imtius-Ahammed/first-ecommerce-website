@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
-import { AuthContext } from '../../Contexts/AuthProvider';
+import { AuthContext } from '../../../Contexts/AuthProvider';
 import { RiDashboard3Line } from '@react-icons/all-files/ri/RiDashboard3Line';
 import { FiShoppingCart } from '@react-icons/all-files/fi/FiShoppingCart';
 import { MdAccountCircle } from '@react-icons/all-files/md/MdAccountCircle';
