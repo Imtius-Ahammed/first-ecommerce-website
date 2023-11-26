@@ -9,20 +9,34 @@ const AllUsers = () => {
     const [users, refetch] = useAllUsers();
     const [axiosSecure] = useAxiosSecure();
 
+    const handleMakeAdmin = (id) => {
+        axiosSecure.patch(`/users/admin/${id}`)
+            .then(res => {
+                if (res.data.modifiedCount) {
+                    refetch();
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'User added as a Admin',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
+            })
+    }
+
     const handleDelete = (id) => {
-        console.log(id);
         axiosSecure.delete(`/users/${id}`)
-        .then(res => {
-            if(res.data.deletedCount > 0){
-                refetch();
-                Swal.fire({
-                    icon: 'success',
-                    title: 'User Deleted',
-                    showConfirmButton: false,
-                    timer: 1500
-                })
-            }
-        })
+            .then(res => {
+                if (res.data.deletedCount > 0) {
+                    refetch();
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'User Deleted',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
+            })
     }
 
     return (
@@ -45,7 +59,7 @@ const AllUsers = () => {
                                 <td>{name}</td>
                                 <td>{email}</td>
                                 <td className='flex items-center justify-center'>
-                                    <button>
+                                    <button onClick={()=>handleMakeAdmin(_id)}>
                                         <RiAdminFill className='text-2xl font-bold text-orange-600 hover:text-black' />
                                     </button>
                                     <div className="divider divider-horizontal"></div>
