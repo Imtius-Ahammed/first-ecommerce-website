@@ -15,6 +15,7 @@ import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import Login from "../../Pages/Login/Login";
 import Register from "../../Pages/Login/Register";
 import AllUsers from "../../Pages/Dashboard/AdminDashboard/AllUsers/AllUsers";
+import AdminRoute from "../AdminRoute/AdminRoute";
 
 export const router = createBrowserRouter([
     {
@@ -60,7 +61,7 @@ export const router = createBrowserRouter([
                 path: '/register',
                 element: <Register />
             },
-            // ----- User Dashboard Routes Starts ----- //
+
             {
                 path: '/dashboard',
                 element: <PrivateRoute>
@@ -68,29 +69,17 @@ export const router = createBrowserRouter([
                 </PrivateRoute>,
                 children: [
                     {
-                        path: '/dashboard',
-                        element: <PrivateRoute>
-                            <Dashboard />
-                        </PrivateRoute>
-                    },
-
-                    {
                         path: '/dashboard/dashboard',
                         element: <PrivateRoute>
                             <Dashboard />
                         </PrivateRoute>
 
                     },
+                    // ----- User Routes Starts ----- //
                     {
                         path: '/dashboard/orders',
                         element: <PrivateRoute>
                             <Orders />
-                        </PrivateRoute>
-                    },
-                    {
-                        path: '/dashboard/users',
-                        element: <PrivateRoute>
-                            <AllUsers />
                         </PrivateRoute>
                     },
                     {
@@ -99,9 +88,20 @@ export const router = createBrowserRouter([
                             <AccountDetails />
                         </PrivateRoute>
                     },
+                    // ----- User Routes Ends ----- //
+
+                    // ----- Admin Routes Starts ----- //
+                    {
+                        path: '/dashboard/users',
+                        element: <PrivateRoute>
+                            <AdminRoute>
+                                <AllUsers />
+                            </AdminRoute>
+                        </PrivateRoute>
+                    },
+                    // ----- Admin Routes Ends ----- //
                 ]
             }
-            // ----- User Dashboard Routes Ends ----- //
         ]
 
     }
