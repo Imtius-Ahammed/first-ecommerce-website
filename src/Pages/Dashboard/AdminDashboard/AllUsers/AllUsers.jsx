@@ -53,15 +53,21 @@ const AllUsers = () => {
                 <tbody className='text-center'>
                     {
                         users.map((user, index) => {
-                            const { _id, name, email } = user;
+                            const { _id, name, email, role } = user;
                             return <tr key={_id} className="hover">
                                 <th>{index + 1}</th>
                                 <td>{name}</td>
                                 <td>{email}</td>
                                 <td className='flex items-center justify-center'>
-                                    <button onClick={()=>handleMakeAdmin(_id)}>
-                                        <RiAdminFill className='text-2xl font-bold text-orange-600 hover:text-black' />
-                                    </button>
+                                    {
+                                        role ?
+                                            <h1 className='uppercase font-bold'>{role}</h1>
+                                            :
+                                            <button onClick={() => handleMakeAdmin(_id)}>
+                                                <RiAdminFill className='text-2xl font-bold text-orange-600 hover:text-black' />
+                                            </button>
+
+                                    }
                                     <div className="divider divider-horizontal"></div>
                                     <button onClick={() => handleDelete(_id)}>
                                         <MdDelete className='text-2xl font-bold text-orange-600 hover:text-black' />
