@@ -4,10 +4,15 @@ import { GiHamburgerMenu } from '@react-icons/all-files/gi/GiHamburgerMenu';
 import { Outlet } from 'react-router-dom';
 import AdminNavbar from '../Pages/Dashboard/AdminDashboard/AdminNavbar/AdminNavbar';
 import useAdmin from '../Hooks/useAdmin';
+import Loader from '../Pages/Shared/Loader/Loader';
 
 const UserDashboardLayout = () => {
 
-    const [isAdmin] = useAdmin();
+    const [isAdmin, isAdminLoading] = useAdmin();
+
+    if(isAdminLoading){
+        return <Loader />
+    }
 
     return (
         <div className="drawer lg:drawer-open w-full lg:w-9/12 mx-auto">
