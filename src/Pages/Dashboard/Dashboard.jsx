@@ -1,16 +1,18 @@
 import React from 'react';
+import useAdmin from '../../Hooks/useAdmin';
+import AdminDashboard from './AdminDashboard/AdminDashboard';
+import UserDashboard from './UserDashboard/UserDashboard';
 
 const Dashboard = () => {
 
-    const isAdmin = true;
-
+    const [isAdmin] = useAdmin();
     return (
         <div>
             {
                 isAdmin ?
-                'Admin Dashboard'
+                <AdminDashboard />
                 :
-                'User Dashboard'
+                <UserDashboard />
             }
         </div>
     );

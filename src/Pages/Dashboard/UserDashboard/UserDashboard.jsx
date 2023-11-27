@@ -1,10 +1,9 @@
 import React from 'react';
-import Dashboard from './Dashboard/Dashboard';
 
 const UserDashboard = () => {
     return (
         <div className=''>
-            <Dashboard />
+            <h1>User Dashboard</h1>
         </div>
     );
 };

@@ -14,7 +14,7 @@ const useAxiosSecure = () => {
     });
 
     useEffect(() => {
-        axios.interceptors.request.use((config) => {
+        axiosSecure.interceptors.request.use((config) => {
             const token = localStorage.getItem('E-Access-Token')
             if (token) {
                 config.headers.Authorization = `Bearer ${token}`
@@ -22,7 +22,7 @@ const useAxiosSecure = () => {
             return config;
         });
 
-        axios.interceptors.response.use((response) => response, async (error) => {
+        axiosSecure.interceptors.response.use((response) => response, async (error) => {
             if (error.response && (error.response.status === 401 || error.response.status === 403)){
                 await logOut();
                 navigate('/login')

@@ -3,10 +3,11 @@ import UserNavbar from '../Pages/Dashboard/UserDashboard/UserNavbar/UserNavbar';
 import { GiHamburgerMenu } from '@react-icons/all-files/gi/GiHamburgerMenu';
 import { Outlet } from 'react-router-dom';
 import AdminNavbar from '../Pages/Dashboard/AdminDashboard/AdminNavbar/AdminNavbar';
+import useAdmin from '../Hooks/useAdmin';
 
 const UserDashboardLayout = () => {
 
-    const isAdmin = true;
+    const [isAdmin] = useAdmin();
 
     return (
         <div className="drawer lg:drawer-open w-full lg:w-9/12 mx-auto">
