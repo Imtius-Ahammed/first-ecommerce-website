@@ -55,7 +55,8 @@ const ProductDetails = () => {
             <FrequentlyBought relatedProducts={relatedProducts} productDetails={productDetails} />
             <DetailsBtn
                 btn={btn}
-                handleBtn={handleBtn} />
+                handleBtn={handleBtn}
+                productDetails={productDetails} />
             <Social />
             <RelatedProducts productDetails={productDetails} />
         </div>

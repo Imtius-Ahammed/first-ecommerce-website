@@ -5,7 +5,7 @@ import AboutBrands from '../AboutBrands/AboutBrands';
 import Shipping from '../Shipping/Shipping';
 import RatingsReviews from '../RatingsReviews/RatingsReviews';
 
-const DetailsBtn = ({handleBtn, btn}) => {
+const DetailsBtn = ({handleBtn, btn, productDetails}) => {
     return (
         <div className='border-none'>
             <div className="text-xl breadcrumbs flex items-center justify-center my-6">
@@ -35,10 +35,10 @@ const DetailsBtn = ({handleBtn, btn}) => {
             </div>
 
             <div className='px-4'>
-                {btn === 'Descriptions' && <Descriptions />}
+                {btn === 'Descriptions' && <Descriptions productDetails={productDetails} />}
                 {btn === 'RatingsReviews' && <RatingsReviews />}
-                {btn === 'AboutBrands' && <AboutBrands />}
-                {btn === 'Shipping' && <Shipping />}
+                {btn === 'AboutBrands' && <AboutBrands productDetails={productDetails} />}
+                {btn === 'Shipping' && <Shipping productDetails={productDetails} />}
                 {btn === 'RelatedProducts' && <RelatedProducts />}
             </div>
 

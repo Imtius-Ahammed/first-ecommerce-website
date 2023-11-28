@@ -1,42 +1,11 @@
-import React, { useState } from 'react';
-
-const ProductsForm = () => {
-    const [product, setProduct] = useState({
-        name: '',
-        image: '',
-        rating: '',
-        price: '',
-        option: '',
-        category: '',
-        product_code: '',
-        tag: '',
-        brand_name: '',
-        brand_description: '',
-        brand_logo: '',
-        description: '',
-        delivery_policies: '',
-        sample_img1: '',
-        sample_img2: '',
-        sample_img3: '',
-        color1: '',
-        color2: '',
-        color3: '',
-        size1: '',
-        size2: '',
-        size3: '',
-    });
-
+const ProductsForm = ({handleSubmit, product, setProduct}) => {
+    
     const handleChange = (e) => {
         const { name, value } = e.target;
         setProduct((prevProduct) => ({
             ...prevProduct,
             [name]: value,
         }));
-    };
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log(product);
     };
 
     return (

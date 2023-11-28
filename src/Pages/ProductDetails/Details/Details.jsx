@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import WishList_Compare from '../WishList_Compare/WishList_Compare';
 import { Link } from 'react-router-dom';
 import { FaStar } from 'react-icons/fa6';
@@ -9,16 +9,38 @@ import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 
 const Details = ({ handleShowImageBtn, productDetails, showImage, hideImage }) => {
 
-    const { category, description, image, sample_img, name, option, tag, price, rating, _id } = productDetails;
+    const { category, description, image, sample_img1, sample_img2, sample_img3, size1, size2, size3, name, option, tag, price, rating, _id } = productDetails;
+
+    const sample_img = [
+        sample_img1, sample_img2, sample_img3
+    ]
+    const size = [
+        size1, size2, size3
+    ]
+
+    const [selectedSize, setSelectedSize] = useState('');
+    const handleSize = (id) => {
+        setSelectedSize(id);
+    }
+    useEffect(() => {
+        if (selectedSize) {
+          Swal.fire({
+            icon: 'success',
+            title: `${selectedSize} Size Selected`,
+            showConfirmButton: false,
+            timer: 1500
+          });
+        }
+      }, [selectedSize]);
 
     const { user } = useContext(AuthContext);
 
-    const [,refetch] = useCart();
+    const [, refetch] = useCart();
     const [axiosSecure] = useAxiosSecure();
 
     const handleCart = (_id) => {
         if (user && user?.email) {
-            const cartData = {productDetails, email: user?.email};
+            const cartData = { productDetails, selectedSize, email: user?.email };
             axiosSecure.post('/carts', cartData)
                 .then(data => {
                     refetch();
@@ -46,12 +68,13 @@ const Details = ({ handleShowImageBtn, productDetails, showImage, hideImage }) =
             <div className='lg:w-2/4 lg:px-0 px-3  w-full flex flex-col-reverse items-center justify-center lg:flex-row gap-2'>
                 <div className='w-full flex lg:flex-col flex-row flex-wrap my-6 lg:w-2/5 '>
                     {
-                        sample_img?.slice(0, 3).map((img, index) => {
+                        sample_img?.map((img, index) => {
                             return <button key={index} onClick={() => handleShowImageBtn(index)}>
                                 <img className='w-32 mx-auto mb-2' src={img} alt="" />
                             </button>
                         })
                     }
+
                 </div>
                 <div className='flex items-center justify-center w-96 h-96'>
                     {
@@ -74,6 +97,20 @@ const Details = ({ handleShowImageBtn, productDetails, showImage, hideImage }) =
                     {description}
                 </p>
                 <p className='text-green-500 mt-3 font-medium mb-4'>In Stock</p>
+                <div className='flex items-center gap-3 my-6'>
+                    <span className='text-lg font-medium'>Size:</span>
+                    {
+                        size?.map((item, index) => {
+                            return <button
+                                key={index}
+                                onClick={() =>handleSize(item)
+                                }
+                                className='px-2 py-1 bg-black text-white hover:bg-[#454444]'>
+                                {item}
+                            </button>
+                        })
+                    }
+                </div>
                 <button onClick={() => handleCart(_id)} className='btn btn-neutral mb-8' type="submit">Add To Cart</button>
 
                 <WishList_Compare />
