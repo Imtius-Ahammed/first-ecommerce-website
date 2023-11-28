@@ -2,7 +2,9 @@ import React, { useContext } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Contexts/AuthProvider';
 import { RiDashboard3Line } from '@react-icons/all-files/ri/RiDashboard3Line';
-import { FiShoppingCart } from '@react-icons/all-files/fi/FiShoppingCart';
+import { AiOutlineShop } from '@react-icons/all-files/ai/AiOutlineShop';
+import { FaUsers } from '@react-icons/all-files/fa/FaUsers';
+import { MdAddCircle } from '@react-icons/all-files/md/MdAddCircle';
 import { MdAccountCircle } from '@react-icons/all-files/md/MdAccountCircle';
 
 const AdminNavbar = () => {
@@ -48,7 +50,23 @@ const AdminNavbar = () => {
                     className={({ isActive }) => (isActive ? "active-link flex items-center justify-between focus:bg-none  hover:text-orange-600" : " flex items-center justify-between hover:bg-white hover:text-orange-600")}
                     to='/dashboard/users'>
                     All Users
-                    <FiShoppingCart className='text-xl text-orange-300 font-bold' />
+                    <FaUsers  className='text-xl text-orange-300 font-bold' />
+                </NavLink>
+            </li>
+            <li className='border-y-2 border-slate-30 p-2 w-full font-semibold'>
+                <NavLink
+                    className={({ isActive }) => (isActive ? "active-link flex items-center justify-between focus:bg-none  hover:text-orange-600" : " flex items-center justify-between hover:bg-white hover:text-orange-600")}
+                    to='/dashboard/all-products'>
+                    All Products
+                    <AiOutlineShop className='text-xl text-orange-300 font-bold' />
+                </NavLink>
+            </li>
+            <li className='border-y-2 border-slate-30 p-2 w-full font-semibold'>
+                <NavLink
+                    className={({ isActive }) => (isActive ? "active-link flex items-center justify-between focus:bg-none  hover:text-orange-600" : " flex items-center justify-between hover:bg-white hover:text-orange-600")}
+                    to='/dashboard/add-products'>
+                    Add Products
+                    <MdAddCircle className='text-xl text-orange-300 font-bold' />
                 </NavLink>
             </li>
             <li className='border-y-2 border-slate-30 p-2 w-full font-semibold'>
