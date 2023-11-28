@@ -34,7 +34,6 @@ const AddProducts = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(product);
         axiosSecure.post('/product', product)
             .then(res => {
                 if (res.data.insertedId) {

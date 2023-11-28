@@ -96,7 +96,7 @@ const ProductsForm = ({handleSubmit, product, setProduct}) => {
                             <input
                                 type="text"
                                 name="brand_logo"
-                                defaultValue={product.brand_logo}
+                                value={product.brand_logo}
                                 onChange={handleChange}
                                 placeholder="Enter brand logo here"
                                 className="input input-ghost w-full text-lg focus:outline-none"
@@ -138,7 +138,7 @@ const ProductsForm = ({handleSubmit, product, setProduct}) => {
                             <div className='w-64'>
                                 <select
                                     name="color1"
-                                    defaultValue={product.color1}
+                                    value={product.color1}
                                     onChange={handleChange}
                                     className="select select-ghost w-full text-lg text-gray-400 font-normal focus:outline-none"
                                 >
@@ -149,7 +149,7 @@ const ProductsForm = ({handleSubmit, product, setProduct}) => {
                                 </select>
                                 <select
                                     name="color2"
-                                    defaultValue={product.color2}
+                                    value={product.color2}
                                     onChange={handleChange}
                                     className="select select-ghost w-full text-lg text-gray-400 font-normal focus:outline-none"
                                 >
@@ -160,7 +160,7 @@ const ProductsForm = ({handleSubmit, product, setProduct}) => {
                                 </select>
                                 <select
                                     name="color3"
-                                    defaultValue={product.color3}
+                                    value={product.color3}
                                     onChange={handleChange}
                                     className="select select-ghost w-full text-lg text-gray-400 font-normal focus:outline-none"
                                 >
@@ -176,7 +176,7 @@ const ProductsForm = ({handleSubmit, product, setProduct}) => {
                             <div className='w-64'>
                                 <select
                                     name="size1"
-                                    defaultValue={product.size1}
+                                    value={product.size1}
                                     onChange={handleChange}
                                     className="select select-ghost w-full text-lg text-gray-400 font-normal focus:outline-none"
                                 >
@@ -188,7 +188,7 @@ const ProductsForm = ({handleSubmit, product, setProduct}) => {
                                 </select>
                                 <select
                                     name="size2"
-                                    defaultValue={product.size2}
+                                    value={product.size2}
                                     onChange={handleChange}
                                     className="select select-ghost w-full text-lg text-gray-400 font-normal focus:outline-none"
                                 >
@@ -200,7 +200,7 @@ const ProductsForm = ({handleSubmit, product, setProduct}) => {
                                 </select>
                                 <select
                                     name="size3"
-                                    defaultValue={product.size3}
+                                    value={product.size3}
                                     onChange={handleChange}
                                     className="select select-ghost w-full text-lg text-gray-400 font-normal focus:outline-none"
                                 >
@@ -218,7 +218,7 @@ const ProductsForm = ({handleSubmit, product, setProduct}) => {
                                 <input
                                     type="text"
                                     name="sample_img1"
-                                    defaultValue={product.sample_img1}
+                                    value={product.sample_img1}
                                     onChange={handleChange}
                                     placeholder="Enter sample image URL here"
                                     className="input input-ghost w-full text-lg focus:outline-none"
@@ -226,7 +226,7 @@ const ProductsForm = ({handleSubmit, product, setProduct}) => {
                                 <input
                                     type="text"
                                     name="sample_img2"
-                                    defaultValue={product.sample_img2}
+                                    value={product.sample_img2}
                                     onChange={handleChange}
                                     placeholder="Enter sample image URL here"
                                     className="input input-ghost w-full text-lg focus:outline-none"
@@ -234,7 +234,7 @@ const ProductsForm = ({handleSubmit, product, setProduct}) => {
                                 <input
                                     type="text"
                                     name="sample_img3"
-                                    defaultValue={product.sample_img3}
+                                    value={product.sample_img3}
                                     onChange={handleChange}
                                     placeholder="Enter sample image URL here"
                                     className="input input-ghost w-full text-lg focus:outline-none"
@@ -248,7 +248,7 @@ const ProductsForm = ({handleSubmit, product, setProduct}) => {
                         <h1 className='text-lg font-bold w-full lg:w-52'>Description:</h1>
                         <textarea
                             name="description"
-                            defaultValue={product.description}
+                            value={product.description}
                             onChange={handleChange}
                             className="textarea textarea-ghost w-full text-lg focus:outline-none"
                             placeholder="Enter product description here"
@@ -258,7 +258,7 @@ const ProductsForm = ({handleSubmit, product, setProduct}) => {
                         <h1 className='text-lg font-bold w-full lg:w-52'>Brand Description:</h1>
                         <textarea
                             name="brand_description"
-                            defaultValue={product.brand_description}
+                            value={product.brand_description}
                             onChange={handleChange}
                             className="textarea textarea-ghost w-full text-lg focus:outline-none"
                             placeholder="Enter brand description here"
@@ -268,7 +268,7 @@ const ProductsForm = ({handleSubmit, product, setProduct}) => {
                         <h1 className='text-lg font-bold w-full lg:w-52'>Delivery Policies:</h1>
                         <textarea
                             name="delivery_policies"
-                            defaultValue={product.delivery_policies}
+                            value={product.delivery_policies}
                             onChange={handleChange}
                             className="textarea textarea-ghost w-full text-lg focus:outline-none"
                             placeholder="Enter delivery policies here"
