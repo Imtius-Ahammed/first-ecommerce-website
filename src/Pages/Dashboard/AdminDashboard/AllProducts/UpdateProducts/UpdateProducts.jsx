@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import useAxiosSecure from '../../../../../Hooks/useAxiosSecure';
 import ProductsForm from '../AddProducts/ProductsForm';
 import useAllProducts from '../../../../../Hooks/useAllProducts';
@@ -10,6 +10,7 @@ const UpdateProducts = () => {
   const { id } = useParams();
   const [axiosSecure] = useAxiosSecure();
   const [, refetch] = useAllProducts();
+  const navigate = useNavigate();
   const [product, setProduct] = useState({
     name: '',
     image: '',
@@ -58,6 +59,7 @@ const UpdateProducts = () => {
             showConfirmButton: false,
             timer: 1500
           })
+          navigate('/dashboard/all-products')
         }
       })
   }
