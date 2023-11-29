@@ -36,7 +36,11 @@ const AddProducts = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axiosSecure.post('/product', product)
+        const productInfo = {
+            ...product,
+            price: parseFloat(product.price),
+        };
+        axiosSecure.post('/product', productInfo)
             .then(res => {
                 if (res.data.insertedId) {
                     Swal.fire({

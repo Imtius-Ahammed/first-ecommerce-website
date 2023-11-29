@@ -41,7 +41,7 @@ const ProductCard = ({ option }) => {
 
 
     return (
-        <div key={_id} className={`py-2 hover:scale-105 duration-500 relative`}>
+        <Link to={`/product-details/${_id}`} key={_id} className={`py-2 hover:scale-105 duration-500 relative`}>
             <div className=' bg-slate-200 h-96'>
                 <img src={image} alt="" className='p-3 w-full h-full' />
             </div>
@@ -71,7 +71,7 @@ const ProductCard = ({ option }) => {
                     <BiHeart size={19} />
                 </button>
             </div>
-        </div>
+        </Link>
     );
 };
 

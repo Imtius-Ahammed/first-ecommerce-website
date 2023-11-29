@@ -49,7 +49,11 @@ const UpdateProducts = () => {
 
   const handleUpdate = (e) => {
     e.preventDefault();
-    axiosSecure.put(`/update-product/${id}`, product)
+    const updateProduct = {
+      ...product,
+      price: parseFloat(product.price),
+  };
+    axiosSecure.put(`/update-product/${id}`, updateProduct)
       .then(res => {
         if (res.data.modifiedCount>0) {
           refetch();

@@ -19,6 +19,7 @@ import AdminRoute from "../AdminRoute/AdminRoute";
 import AddProducts from "../../Pages/Dashboard/AdminDashboard/AllProducts/AddProducts/AddProducts";
 import AllProducts from "../../Pages/Dashboard/AdminDashboard/AllProducts/AllProducts";
 import UpdateProducts from "../../Pages/Dashboard/AdminDashboard/AllProducts/UpdateProducts/UpdateProducts";
+import Checkout from "../../Pages/Dashboard/UserDashboard/Orders/Checkout/Checkout";
 
 export const router = createBrowserRouter([
     {
@@ -90,6 +91,12 @@ export const router = createBrowserRouter([
                         path: '/dashboard/orders',
                         element: <PrivateRoute>
                             <Orders />
+                        </PrivateRoute>
+                    },
+                    {
+                        path: '/dashboard/checkout',
+                        element: <PrivateRoute>
+                            <Checkout />
                         </PrivateRoute>
                     },
                     {
