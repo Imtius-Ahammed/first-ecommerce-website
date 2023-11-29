@@ -20,6 +20,8 @@ import AddProducts from "../../Pages/Dashboard/AdminDashboard/AllProducts/AddPro
 import AllProducts from "../../Pages/Dashboard/AdminDashboard/AllProducts/AllProducts";
 import UpdateProducts from "../../Pages/Dashboard/AdminDashboard/AllProducts/UpdateProducts/UpdateProducts";
 import Checkout from "../../Pages/Dashboard/UserDashboard/Orders/Checkout/Checkout";
+import PaymentSuccess from "../../Pages/Dashboard/UserDashboard/Orders/Checkout/PaymentSuccess";
+import PaymentFailed from "../../Pages/Dashboard/UserDashboard/Orders/Checkout/PaymentFailed";
 
 export const router = createBrowserRouter([
     {
@@ -98,6 +100,18 @@ export const router = createBrowserRouter([
                         element: <PrivateRoute>
                             <Checkout />
                         </PrivateRoute>
+                    },
+                    {
+                        path: "/dashboard/payment/success",
+                        element: <PrivateRoute><PaymentSuccess /></PrivateRoute>
+                    },
+                    {
+                        path: "/dashboard/payment/fail",
+                        element: <PrivateRoute><PaymentFailed /></PrivateRoute>
+                    },
+                    {
+                        path: "/dashboard/payment/cancel",
+                        element: <PrivateRoute><PaymentFailed /></PrivateRoute>
                     },
                     {
                         path: '/dashboard/accountDetails',

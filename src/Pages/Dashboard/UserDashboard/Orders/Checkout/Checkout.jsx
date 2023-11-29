@@ -2,15 +2,34 @@ import React, { useContext } from 'react';
 import useCart from '../../../../../Hooks/useCart';
 import { useForm } from 'react-hook-form';
 import { AuthContext } from '../../../../Contexts/AuthProvider';
+import useAxiosSecure from '../../../../../Hooks/useAxiosSecure';
 
 const Checkout = () => {
 
     const [cart] = useCart();
+    const [axiosSecure] = useAxiosSecure();
     const { register, handleSubmit } = useForm();
     const totalPrice = cart.reduce((sum, item) => sum + item.productDetails.price, 0);
     const { user } = useContext(AuthContext);
 
-    const onSubmit = data => console.log(data);
+    const onSubmit = data => {
+        const { firstName, lastName, email, phone, currency, postcode, address } = data;
+        const products = cart.map(item => ({
+            cartId: item._id,
+            _id: item.productDetails._id,
+            name: item.productDetails.name,
+            category: item.productDetails.category,
+            price: item.productDetails.price,
+        }));
+
+        const paymentInfo = { firstName, lastName, email, phone, currency, postcode, address, totalPrice, products }
+        axiosSecure.post('/payment-info', paymentInfo)
+            .then(res => {
+                console.log(res.data);
+                window.location.replace(res.data.url);
+                form.reset();
+            })
+    };
 
     return (
         <div>
