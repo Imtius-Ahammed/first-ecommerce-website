@@ -1,37 +1,72 @@
 import React from 'react';
-import useCart from '../../../../Hooks/useCart';
+import { Link } from 'react-router-dom';
 
-const OrdersList = ({ handleDelete }) => {
-
-    const [cart] = useCart();
-
+const OrdersList = ({ orders }) => {
     return (
-        <div>
-            {
-                cart?.length > 0 ?
-                    <div className='grid grid-cols-1 gap-8 my-6'>
-                        {
-                            cart.map((item, index) => {
-                                const { name, price, _id } = item;
-
-                                return <div
-                                    className='flex border-l-4 border-black lg:flex-row flex-col items-center text-center justify-between gap-4 w-full p-2 rounded bg-slate-200'
-                                    key={_id}>
-                                    <h1 className='text-start w-full lg:w-3/6 rounded bg-slate-50 p-1 text-lg font-semibold'>
-                                        <span className='mr-3'>{index + 1}.</span>
-                                        {name}
-                                    </h1>
-                                    <p className='w-full font-semibold lg:w-1/6 text-lg rounded text-orange-600 bg-slate-50 p-1'>${price}</p>
-                                    <button onClick={() => handleDelete(item._id)} className='w-full lg:w-1/6 p-2 bg-black hover:bg-[#4f4f4f] text-white text-sm font-bold rounded'>Delete</button>
-                                </div>
-                            })
-                        }
-                    </div>
-                    :
-                    <div className='text-3xl font-bold text-center p-20 border-4 border-black flex items-center justify-center'>
-                        <h1>There are no products in this Cart</h1>
-                    </div>
-            }
+        <div className="overflow-x-auto">
+            <table className="table w-full">
+                <thead className='text-center'>
+                    <tr className='w-full'>
+                        <th>#</th>
+                        <th>Transaction Id</th>
+                        <th>Price</th>
+                        <th>Payment</th>
+                        <th>Payment Date</th>
+                        <th>Status</th>
+                        <th className='text-center'>Action</th>
+                    </tr>
+                </thead>
+                <tbody className='text-center'>
+                    {
+                        orders.map((order, index) => {
+                            const { _id, transactionId, paid, status, paidAt, currency, totalPrice } = order;
+                            return <tr key={_id} className='w-full'>
+                                <th>
+                                    <span className='mask mask-squircle border-r-2 border-black p-3'>
+                                        {index + 1}
+                                    </span>
+                                </th>
+                                <td>
+                                    <div className="font-bold">{transactionId}</div>
+                                </td>
+                                <td>
+                                    <div className="font-bold">{currency + ' ' + totalPrice}</div>
+                                </td>
+                                <td>
+                                    {
+                                        paid ?
+                                        <span className="badge badge-success badge-md p-2 font-semibold">Paid</span>
+                                        :
+                                        <span className="badge badge-warning badge-md p-2 font-semibold">Pending</span>
+                                    }
+                                </td>
+                                <td>
+                                    <div className="font-bold">{paidAt?.slice(0, 10)}</div>
+                                </td>
+                                <td>
+                                    {
+                                        status ?
+                                        <div className="font-bold">
+                                            Delivered
+                                            </div>
+                                            :
+                                            <div className="font-bold">
+                                            Pending
+                                            </div> 
+                                    }
+                                </td>
+                                <th>
+                                    <Link
+                                        className='px-3 py-1 bg-green-600 text-white rounded-lg hover:bg-green-400'
+                                        to={`/dashboard/payment/success?transactionId=${transactionId}`}>
+                                        Download
+                                    </Link>
+                                </th>
+                            </tr>
+                        })
+                    }
+                </ tbody>
+            </table>
         </div>
     );
 };

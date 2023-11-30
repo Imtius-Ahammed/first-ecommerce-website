@@ -47,6 +47,14 @@ const UserNavbar = () => {
             <li className='border-y-2 border-slate-30 p-2 w-full font-semibold'>
                 <NavLink
                     className={({ isActive }) => (isActive ? "active-link flex items-center justify-between focus:bg-none  hover:text-orange-600" : " flex items-center justify-between hover:bg-white hover:text-orange-600")}
+                    to='/dashboard/my-cart'>
+                    My Cart
+                    <FiShoppingCart className='text-xl text-orange-300 font-bold' />
+                </NavLink>
+            </li>
+            <li className='border-y-2 border-slate-30 p-2 w-full font-semibold'>
+                <NavLink
+                    className={({ isActive }) => (isActive ? "active-link flex items-center justify-between focus:bg-none  hover:text-orange-600" : " flex items-center justify-between hover:bg-white hover:text-orange-600")}
                     to='/dashboard/orders'>
                     Orders
                     <FiShoppingCart className='text-xl text-orange-300 font-bold' />

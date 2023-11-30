@@ -8,7 +8,7 @@ import Blogs from "../../Pages/Blogs/Blogs";
 import Shops from "../../Pages/Shops/Shops";
 import ProductDetails from "../../Pages/ProductDetails/ProductDetails";
 import UserDashboardLayout from "../../Layout/UserDashboardLayout";
-import Orders from "../../Pages/Dashboard/UserDashboard/Orders/Orders";
+import MyCart from "../../Pages/Dashboard/UserDashboard/MyCart/MyCart";
 import Dashboard from "../../Pages/Dashboard/Dashboard";
 import AccountDetails from "../../Pages/Dashboard/UserDashboard/AccountDetails/AccountDetails";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
@@ -19,9 +19,10 @@ import AdminRoute from "../AdminRoute/AdminRoute";
 import AddProducts from "../../Pages/Dashboard/AdminDashboard/AllProducts/AddProducts/AddProducts";
 import AllProducts from "../../Pages/Dashboard/AdminDashboard/AllProducts/AllProducts";
 import UpdateProducts from "../../Pages/Dashboard/AdminDashboard/AllProducts/UpdateProducts/UpdateProducts";
-import Checkout from "../../Pages/Dashboard/UserDashboard/Orders/Checkout/Checkout";
-import PaymentSuccess from "../../Pages/Dashboard/UserDashboard/Orders/Checkout/PaymentSuccess";
-import PaymentFailed from "../../Pages/Dashboard/UserDashboard/Orders/Checkout/PaymentFailed";
+import Checkout from "../../Pages/Dashboard/UserDashboard/MyCart/Checkout/Checkout";
+import PaymentSuccess from "../../Pages/Dashboard/UserDashboard/MyCart/Checkout/PaymentSuccess";
+import PaymentFailed from "../../Pages/Dashboard/UserDashboard/MyCart/Checkout/PaymentFailed";
+import Orders from "../../Pages/Dashboard/UserDashboard/Orders/Orders";
 
 export const router = createBrowserRouter([
     {
@@ -89,6 +90,12 @@ export const router = createBrowserRouter([
 
                     },
                     // ----- User Routes Starts ----- //
+                    {
+                        path: '/dashboard/my-cart',
+                        element: <PrivateRoute>
+                            <MyCart />
+                        </PrivateRoute>
+                    },
                     {
                         path: '/dashboard/orders',
                         element: <PrivateRoute>
