@@ -22,8 +22,8 @@ import UpdateProducts from "../../Pages/Dashboard/AdminDashboard/AllProducts/Upd
 import Checkout from "../../Pages/Dashboard/UserDashboard/MyCart/Checkout/Checkout";
 import PaymentSuccess from "../../Pages/Dashboard/UserDashboard/MyCart/Checkout/PaymentSuccess";
 import PaymentFailed from "../../Pages/Dashboard/UserDashboard/MyCart/Checkout/PaymentFailed";
-import Orders from "../../Pages/Dashboard/UserDashboard/Orders/Orders";
 import AllPayments from "../../Pages/Dashboard/AdminDashboard/AllPayments/AllPayments";
+import Orders from "../../Pages/Dashboard/UserDashboard/Orders/Orders";
 
 export const router = createBrowserRouter([
     {
