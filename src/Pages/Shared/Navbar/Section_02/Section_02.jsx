@@ -52,7 +52,7 @@ const Section_02 = () => {
                         </div>
                         <div className='flex relative'>
                             <p className='absolute bottom-4 left-4 bg-[#f2695f] text-sm h-5 w-5 text-center rounded-full text-white font-semibold'>{cart?.length || 0}</p>
-                            <Link to='/dashboard/orders'><HiOutlineShoppingBag className='text-3xl hover:text-orange-500' /></Link>
+                            <Link to='/dashboard/my-cart'><HiOutlineShoppingBag className='text-3xl hover:text-orange-500' /></Link>
                         </div>
                     </div>
                 </div>

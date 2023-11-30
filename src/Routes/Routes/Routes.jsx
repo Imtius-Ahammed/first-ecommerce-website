@@ -23,6 +23,7 @@ import Checkout from "../../Pages/Dashboard/UserDashboard/MyCart/Checkout/Checko
 import PaymentSuccess from "../../Pages/Dashboard/UserDashboard/MyCart/Checkout/PaymentSuccess";
 import PaymentFailed from "../../Pages/Dashboard/UserDashboard/MyCart/Checkout/PaymentFailed";
 import Orders from "../../Pages/Dashboard/UserDashboard/Orders/Orders";
+import AllPayments from "../../Pages/Dashboard/AdminDashboard/AllPayments/AllPayments";
 
 export const router = createBrowserRouter([
     {
@@ -158,6 +159,14 @@ export const router = createBrowserRouter([
                         element: <PrivateRoute>
                             <AdminRoute>
                                 <AllProducts />
+                            </AdminRoute>
+                        </PrivateRoute>
+                    },
+                    {
+                        path: '/dashboard/all-payments',
+                        element: <PrivateRoute>
+                            <AdminRoute>
+                                <AllPayments />
                             </AdminRoute>
                         </PrivateRoute>
                     },

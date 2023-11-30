@@ -3,6 +3,7 @@ import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Contexts/AuthProvider';
 import { RiDashboard3Line } from '@react-icons/all-files/ri/RiDashboard3Line';
 import { FiShoppingCart } from '@react-icons/all-files/fi/FiShoppingCart';
+import { GoChecklist } from '@react-icons/all-files/go/GoChecklist';
 import { MdAccountCircle } from '@react-icons/all-files/md/MdAccountCircle';
 import './UseNavbar.css';
 
@@ -57,7 +58,7 @@ const UserNavbar = () => {
                     className={({ isActive }) => (isActive ? "active-link flex items-center justify-between focus:bg-none  hover:text-orange-600" : " flex items-center justify-between hover:bg-white hover:text-orange-600")}
                     to='/dashboard/orders'>
                     Orders
-                    <FiShoppingCart className='text-xl text-orange-300 font-bold' />
+                    <GoChecklist className='text-xl text-orange-300 font-bold' />
                 </NavLink>
             </li>
             <li className='border-y-2 border-slate-30 p-2 w-full font-semibold'>
