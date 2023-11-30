@@ -10,7 +10,8 @@ const useAxiosSecure = () => {
     const navigate = useNavigate();
 
     const axiosSecure = axios.create({
-        baseURL: 'http://localhost:5000'
+        baseURL: 'https://first-ecommerce-website-server.vercel.app'
+        // http://localhost:5000
     });
 
     useEffect(() => {
