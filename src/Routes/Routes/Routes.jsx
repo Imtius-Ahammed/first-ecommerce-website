@@ -90,7 +90,7 @@ export const router = createBrowserRouter([
                         </PrivateRoute>
 
                     },
-                    // ----- User Routes Starts ----- //
+                    // ------ User Routes Starts ------ //
                     {
                         path: '/dashboard/my-cart',
                         element: <PrivateRoute>
