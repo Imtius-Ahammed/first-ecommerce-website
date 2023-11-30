@@ -40,7 +40,7 @@ const Orders = () => {
         }
     }
 
-    const totalPrice = cart.reduce((sum, item) => sum + item.productDetails.price, 0);
+    const totalPrice = cart.reduce((sum, item) => sum + item.price, 0);
 
     return (
         <div className='flex flex-col-reverse lg:flex-col'>

@@ -16,7 +16,7 @@ const ProductCard = ({ option }) => {
 
     const handleCart = (_id) => {
         if (user && user?.email) {
-            const cartData = { productDetails: option, email: user?.email };
+            const cartData = { productId:_id, image, rating, name, price, email: user?.email };
             axiosSecure.post('/carts', cartData)
                 .then(res => {
                     refetch();

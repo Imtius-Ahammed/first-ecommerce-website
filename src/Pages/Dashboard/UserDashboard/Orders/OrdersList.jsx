@@ -12,7 +12,7 @@ const OrdersList = ({ handleDelete }) => {
                     <div className='grid grid-cols-1 gap-8 my-6'>
                         {
                             cart.map((item, index) => {
-                                const { name, price, _id } = item.productDetails;
+                                const { name, price, _id } = item;
 
                                 return <div
                                     className='flex border-l-4 border-black lg:flex-row flex-col items-center text-center justify-between gap-4 w-full p-2 rounded bg-slate-200'
