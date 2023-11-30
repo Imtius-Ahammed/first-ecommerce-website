@@ -70,7 +70,7 @@ const PaymentSuccess = () => {
                 </div>
             </div>
 
-            <h1 className='text-center my-3'>If you have any questions, please email us: <span className='text-orange-600 font-bold'>support@booktown.com</span></h1>
+            <h1 className='text-center my-3'>If you have any questions, please email us: <span className='text-orange-600 font-bold'>support@ecommerce.com</span></h1>
 
             <button className='py-1 px-3 w-1/6 mx-auto print:hidden bg-black rounded-lg mt-6 hover:bg-orange-600 text-white font-semibold' onClick={() => window.print()}>Print</button>
         </div >

@@ -1,40 +1,18 @@
 import { MdArrowDropDown } from '@react-icons/all-files/md/MdArrowDropDown';
-import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
-import Login from '../../../Login/Login';
-import Register from '../../../Login/Register';
+import React, { useContext } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Contexts/AuthProvider';
 
 const Section_01 = () => {
 
     const { user, logOut } = useContext(AuthContext);
-    // const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-    // const [isSignInModalOpen, setSignInModalOpen] = useState(false);
-    // const [isRegisterModalOpen, setRegisterModalOpen] = useState(false);
-
-    // const openSignInModal = () => {
-    //     setSignInModalOpen(true);
-    //     closeRegisterModal();
-    //     setIsLoggedIn(true)
-    // };
-
-    // const closeSignInModal = () => {
-    //     setSignInModalOpen(false);
-    // };
-
-    // const openRegisterModal = () => {
-    //     setRegisterModalOpen(true);
-    //     closeSignInModal();
-    // };
-
-    // const closeRegisterModal = () => {
-    //     setRegisterModalOpen(false);
-    // };
+    const navigate = useNavigate();    
 
     const handleLogOut = () => {
         logOut()
-            .then(() => {})
+            .then(() => {
+                navigate('/')
+            })
             .catch(e => {
                 console.log(e);
             })
