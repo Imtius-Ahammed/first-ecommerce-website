@@ -7,7 +7,7 @@ const LatestNews = () => {
     return (
         <div className='w-full lg:w-9/12 mx-auto mb-24'>
             <div className='flex flex-col items-center gap-3'>
-                <h1 className='text-4xl font-medium'>Latest News</h1>
+                <h1 className='text-2xl lg:text-4xl font-medium'>Latest News</h1>
                 <p className='text-slate-500'>Update the latest fashion trends today</p>
             </div>
 

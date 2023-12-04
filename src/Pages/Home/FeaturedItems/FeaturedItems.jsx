@@ -15,7 +15,7 @@ const FeaturedItems = ({ option }) => {
 
     return (
         <div className="max-w-6xl mx-auto my-20 relative">
-            <h1 className='text-center text-4xl font-semibold my-6'>Featured Items</h1>
+            <h1 className='text-center text-2xl lg:text-4xl font-semibold my-6'>Featured Items</h1>
             <div className='flex h-12 items-center justify-center gap-10'>
                 <button
                     onClick={() => handleFilter("Men's")}

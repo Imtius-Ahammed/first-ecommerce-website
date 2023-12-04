@@ -22,7 +22,7 @@ const Section_01 = () => {
         <div className='w-full py-2 border-b-2'>
             <div className='flex lg:flex-row flex-col gap-2 mx-auto w-full lg:w-9/12 font-thin items-center justify-between text-slate-500'>
                 <div className='hidden lg:flex'>
-                    <h1>Welcome to Romi!</h1>
+                    <h1>Welcome to Ecom BD!</h1>
                 </div>
                 <div className='flex gap-4 items-center divide-x-2'>
                     <div className="dropdown dropdown-hover dropdown-bottom px-3">

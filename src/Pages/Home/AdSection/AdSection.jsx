@@ -2,8 +2,8 @@ import React from 'react';
 
 const AdSection = () => {
     return (
-        <div className='max-w-6xl mx-auto flex justify-around'>
-            <div className='lg:relative lg:block hidden' >
+        <div className='max-w-6xl mx-auto hidden lg:flex justify-around'>
+            <div className='relative' >
                 <img src="/src/Assets/Img/banner-1.jpg" alt="" />
                 <div className="absolute top-20 py-3 w-full text-center">
                     <div className='flex justify-center'> <img src="/src/Assets/Img/Special-Sale.png" alt="" /></div>

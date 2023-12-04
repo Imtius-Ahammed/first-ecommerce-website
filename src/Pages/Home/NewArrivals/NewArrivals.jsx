@@ -13,7 +13,7 @@ const NewArrivals = ({ option }) => {
 
     return (
         <div className='max-w-6xl mx-auto my-20'>
-            <h1 className='text-center text-4xl font-semibold mb-3'>New Arrivals</h1>
+            <h1 className='text-center text-2xl lg:text-4xl font-semibold mb-3'>New Arrivals</h1>
             <p className='text-center text-lg text-gray-500'>Add our new arrivals to your weekly lineup</p>
             <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 py-8 px-12 sm:px-0 cursor-pointer'>
                 {
