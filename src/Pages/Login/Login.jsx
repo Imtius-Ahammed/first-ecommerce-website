@@ -42,7 +42,7 @@ const Login = () => {
   }
 
   return (
-    <div className='w-2/3 lg:w-1/3 mx-auto mt-10 shadow-2xl p-4 lg:p-10 shadow-emerald-200'>
+    <div className='w-5/6 lg:w-1/3 mx-auto mt-10 shadow-2xl p-4 lg:p-10 shadow-emerald-200'>
       <Helmet>
         <title>Romi - Login</title>
       </Helmet>

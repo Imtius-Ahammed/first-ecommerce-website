@@ -61,7 +61,7 @@ const Register = () => {
   }
 
   return (
-    <div className='w-2/3 lg:w-1/3 mx-auto mt-2 shadow-2xl p-4 lg:p-10 shadow-emerald-200'>
+    <div className='w-5/6 lg:w-1/3 mx-auto mt-2 shadow-2xl p-4 lg:p-10 shadow-emerald-200'>
       <form onSubmit={handleSubmit} method="dialog" className='p-4 lg:px-12 flex flex-col gap-4'>
         <h2 className="text-2xl font-bold text-black text-center mb-2 border-b-4 border-black p-2 w-48 mx-auto">Register</h2>
         <p className='text-center mb-5'>Become a part of our community!</p>
