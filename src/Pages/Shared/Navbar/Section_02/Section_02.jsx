@@ -29,7 +29,7 @@ const Section_02 = () => {
         <div>
             <div className='flex lg:px-0 px-4 gap-4 border-b-2 mx-auto w-full lg:w-9/12 justify-between items-center py-4 lg:py-8'>
                 <div className='flex items-center w-full lg:gap-0 gap-4'>
-                    <div className="dropdown">
+                    <div className="dropdown z-10">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                         </label>
