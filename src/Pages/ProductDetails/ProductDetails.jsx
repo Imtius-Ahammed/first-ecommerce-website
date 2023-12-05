@@ -45,7 +45,7 @@ const ProductDetails = () => {
     return (
         <div className='mx-auto w-full lg:w-9/12 '>
             <Helmet>
-                <title>Romi - Product Details</title>
+                <title>Ecom BD - Product Details</title>
             </Helmet>
             <Details
                 handleShowImageBtn={handleShowImageBtn}

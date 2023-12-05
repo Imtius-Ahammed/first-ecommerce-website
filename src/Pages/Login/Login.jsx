@@ -44,7 +44,7 @@ const Login = () => {
   return (
     <div className='w-5/6 lg:w-1/3 mx-auto mt-10 shadow-2xl p-4 lg:p-10 shadow-emerald-200'>
       <Helmet>
-        <title>Romi - Login</title>
+        <title>Ecom BD - Login</title>
       </Helmet>
       <form onSubmit={handleLogin} method="dialog" className='p-4 lg:px-12 flex flex-col gap-4'>
         <h2 className="text-2xl font-bold text-black text-center mb-2 border-b-4 border-black p-2 w-48 mx-auto">Login</h2>

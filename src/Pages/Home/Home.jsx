@@ -36,7 +36,7 @@ const Home = () => {
     return (
         <>
             <Helmet>
-                <title>Romi - Home</title>
+                <title>Ecom BD - Home</title>
             </Helmet>
             <Banner
                 categories={categories}

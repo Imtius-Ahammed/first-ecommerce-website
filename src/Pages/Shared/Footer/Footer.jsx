@@ -16,24 +16,24 @@ const Footer = () => {
         <div className='mx-auto w-full divide-y-2 lg:w-9/12'>
             <footer className="footer text-base-content py-20 px-4 lg:px-0">
                 <div className='flex flex-col gap-8 w-full'>
-                    <Link to='/'><img src={logo} alt="" /></Link>
+                    <Link to='/' className='text-2xl lg:w-1/3 w-2/3 text-center border-y-4 border-orange-600 bg-orange-50 px-3 py-1 font-serif font-bold'>Ecom BD</Link>
                     <div className='flex flex-col gap-4'>
                         <p className="full lg:w-80">
                             Address:
                             <span className='ml-2'>
-                                2593 Timbercrest Road, Chisana, Alaska Badalas United State
+                                Dhaka, Bangladesh
                             </span>
                         </p>
                         <p className="w-80">
                             Phone:
                             <span className='ml-2'>
-                                706-676-8237
+                                01XXXXXXXXXX
                             </span>
                         </p>
                         <p className="w-80">
                             Email:
                             <span className='ml-2 text-orange-500'>
-                                romi@demo.com
+                                ecombd@demo.com
                             </span>
                         </p>
                     </div>
@@ -74,7 +74,7 @@ const Footer = () => {
             </footer>
             <footer className="footer flex lg:flex-row flex-col items-center justify-between py-4 px-4 lg:px-0 text-center text-base-content">
                 <div className="flex items-center">
-                    <p>© Copyright 2023 Romi - All Rights Reserved - Powered by WooVina Theme.</p>
+                    <p>© Copyright 2023 Ecom BD - All Rights Reserved.</p>
                 </div>
                 <div className="grid grid-flow-col gap-4">
                     <FaCcPaypal className='text-4xl' />

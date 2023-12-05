@@ -12,7 +12,7 @@ const AboutUs = () => {
     return (
         <div>
             <Helmet>
-                <title>Romi - About Us</title>
+                <title>Ecom BD - About Us</title>
             </Helmet>
             <div className='px-4 py-4 lg:py-10'>
                 <div className='flex flex-col items-center gap-3'>
@@ -25,15 +25,15 @@ const AboutUs = () => {
                 </div>
                 <div className='w-full lg:w-2/4 mx-auto'>
                     <div className='flex flex-col gap-6'>
-                        <h1 className='text-4xl font-normal'>Romi - Powerful Theme for Shop</h1>
+                        <h1 className='text-4xl font-normal'>Ecom BD - Powerful Theme for Shop</h1>
                         <p className='text-lg font-light'>
-                            Romi curates a selection of objects focused on quality, minimalism, and functionality. Our mission is to provide a unique set of products that fascinate and inspire the user. We review each product, down to its packaging, to ensure that we continuously provide the best in both quality and design. <br /><br />
+                            Ecom BD curates a selection of objects focused on quality, minimalism, and functionality. Our mission is to provide a unique set of products that fascinate and inspire the user. We review each product, down to its packaging, to ensure that we continuously provide the best in both quality and design. <br /><br />
                             <span className='text-sm font-normal text-gray-500'>
                                 Our selection of products are designed and imported from all over the world. Whether from Denmark or Japan, some of these items have never received exposure in the United States. In addition, we are the exclusive North American distributor for a number of brands found within our store.
                             </span>
                             <br /><br />
                             <span>
-                                We’re happy to help. If you have any questions regarding a product or an order, please feel free to reach out to us at <span className='font-normal'>romi@demo.com</span>.
+                                We’re happy to help. If you have any questions regarding a product or an order, please feel free to reach out to us at <span className='font-normal'>Ecom BD@demo.com</span>.
                             </span>
                         </p>
                         <div className='divide-x-2 divide-orange-600'>

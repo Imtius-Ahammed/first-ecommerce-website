@@ -7,7 +7,7 @@ const Blogs = () => {
     return (
         <div>
             <Helmet>
-                <title>Romi - Blogs</title>
+                <title>Ecom BD - Blogs</title>
             </Helmet>
             <div className='flex flex-col lg:flex-row justify-between gap-6 w-full lg:w-9/12 mx-auto my-12 lg:px-0 px-2'>
                 <div className='w-full lg:w-3/4'>

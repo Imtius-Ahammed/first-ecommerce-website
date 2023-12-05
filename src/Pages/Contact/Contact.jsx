@@ -6,7 +6,7 @@ const Contact = () => {
   return (
     <div>
       <Helmet>
-        <title>Romi - Contact</title>
+        <title>Ecom BD - Contact</title>
       </Helmet>
       <div className="h-[800px] container mx-auto lg:flex-row  flex flex-col justify-center items-center mb-6 ">
 
