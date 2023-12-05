@@ -20,12 +20,12 @@ const Section_01 = () => {
 
     return (
         <div className='w-full py-2 border-b-2'>
-            <div className='flex lg:flex-row flex-col gap-2 mx-auto w-full lg:w-9/12 font-thin items-center justify-between text-slate-500'>
-                <div className='hidden lg:flex'>
+            <div className='flex gap-2 mx-auto w-11/12 lg:w-9/12 font-thin items-center justify-between text-slate-500'>
+                <div>
                     <h1>Welcome to Ecom BD!</h1>
                 </div>
                 <div className='flex gap-4 items-center divide-x-2'>
-                    <div className="dropdown dropdown-hover dropdown-bottom px-3">
+                    <div className="hidden lg:dropdown dropdown-hover dropdown-bottom px-3">
                         <div className='flex items-center'>
                             <h3 className="hover:text-orange-500 hover:bg-white">Language</h3>
                             <MdArrowDropDown />
@@ -39,7 +39,7 @@ const Section_01 = () => {
                             </li>
                         </ul>
                     </div>
-                    <div className="dropdown dropdown-hover dropdown-bottom px-3">
+                    <div className="hidden lg:dropdown dropdown-hover dropdown-bottom px-3">
                         <div className='flex items-center'>
                             <h3 className="hover:text-orange-500 hover:bg-white">Currency</h3>
                             <MdArrowDropDown />
@@ -65,30 +65,6 @@ const Section_01 = () => {
                                 </button>
                             </div>
                             :
-                            // <div>
-                            //     <div className="px-3">
-                            //         <button onClick={openSignInModal}>Sign In / Register</button>
-                            //     </div>
-                            //     {
-                            //         isLoggedIn &&
-                            //         <div>
-                            //             <dialog id="my_modal_3" className="modal" open={isSignInModalOpen}>
-                            //                 <div className="modal-box">
-                            //                     <button onClick={closeSignInModal} className='btn btn-sm btn-circle btn-ghost absolute right-2 top-2'>X</button>
-                            //                     <Login></Login>
-                            //                     <button onClick={openRegisterModal} className='flex items-center w-full justify-center mt-2'>Don't have an account<span className='font-bold ml-2 underline'>Register</span></button>
-                            //                 </div>
-                            //             </dialog>
-
-                            //             <dialog id="register_modal" className="modal" open={isRegisterModalOpen}>
-                            //                 <div className="modal-box">
-                            //                     <button onClick={closeRegisterModal} className='btn btn-sm btn-circle btn-ghost absolute right-2 top-2'>X</button>
-                            //                     <Register></Register>
-                            //                 </div>
-                            //             </dialog>
-                            //         </div>
-                            //     }
-                            // </div>
                             <div className="px-3">
                                 <Link to='/login'>Sign In / Register</Link>
                             </div>

@@ -15,7 +15,7 @@ const Section_02 = () => {
     return (
         <div>
             <div className='flex lg:px-0 px-4 gap-4 border-b-2 mx-auto w-full lg:w-9/12 justify-between items-center py-4 lg:py-8'>
-                <div className='flex items-center lg:gap-0 gap-4'>
+                <div className='flex items-center w-full lg:gap-0 gap-4'>
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
@@ -28,7 +28,7 @@ const Section_02 = () => {
                             <li><Link to='/contact-us' className='hover:text-orange-500 hover:border-b-2 hover:bg-white border-orange-500'>Contact Us</Link></li>
                         </ul>
                     </div>
-                    <Link to='/' className='text-2xl border-y-4 border-orange-600 bg-orange-50 px-3 py-1 font-serif font-bold'>Ecom BD</Link>
+                    <Link to='/' className='text-2xl lg:w-1/4 w-2/3 text-center border-y-4 border-orange-600 bg-orange-50 px-3 py-1 font-serif font-bold'>Ecom BD</Link>
                     {/* <img className='lg:w-full w-24' src={logo} alt="" /> */}
                 </div>
                 <div className='hidden lg:flex items-center'>
